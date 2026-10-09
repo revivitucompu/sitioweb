@@ -2,7 +2,7 @@
 """Valida el sitio de Reviví Tu Compu antes de publicarlo.
 
 Uso:
-    python3 scripts/validar.py [carpeta]        # por defecto, la carpeta actual
+    python3 scripts/validar.py [carpeta]        # por defecto, public
 
 Sale con código 1 si encuentra algo que rompe el sitio.
 """
@@ -14,19 +14,37 @@ import xml.dom.minidom
 from html.parser import HTMLParser
 
 PRINCIPAL = 'https://revivitucompu.com.ar'
+APPS = 'https://apps.revivitucompu.com.ar'
+EMPRESAS = 'https://empresas.revivitucompu.com.ar'
+REMOTO = 'https://remoto.revivitucompu.com.ar'
 
-# Páginas que se sirven desde su propio subdominio y su URL pública.
-SUBDOMINIOS = {
-    'empresas.html':     'https://empresas.revivitucompu.com.ar/',
-    'remoto.html':       'https://remoto.revivitucompu.com.ar/',
-    'apps.html':         'https://apps.revivitucompu.com.ar/',
-    'relevamiento.html': 'https://apps.revivitucompu.com.ar/relevamiento',
-    'suscripcion.html':  'https://apps.revivitucompu.com.ar/suscripcion',
+# Desde qué host se sirve cada página.
+HOST_DE = {
+    'empresas.html':     EMPRESAS,
+    'remoto.html':       REMOTO,
+    'apps.html':         APPS,
+    'relevamiento.html': APPS,
+    'suscripcion.html':  APPS,
 }
 
-# Archivos que no se referencian desde el HTML pero tienen que estar igual.
+# URL pública de cada página, para chequear la canónica.
+URL_DE = {
+    'empresas.html':     EMPRESAS + '/',
+    'remoto.html':       REMOTO + '/',
+    'apps.html':         APPS + '/',
+    'relevamiento.html': APPS + '/relevamiento',
+    'suscripcion.html':  APPS + '/suscripcion',
+}
+
+# Archivos que se sirven igual desde cualquier dominio: un enlace relativo a la
+# raíz que apunte a uno de estos funciona siempre.
+PREFIJOS_ESTATICOS = ('img/', 'js/', 'css/', 'taller/', 'seguimiento/')
+ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'site.webmanifest'}
+
+# Imágenes que no se referencian desde el HTML pero tienen que estar igual.
 SIEMPRE = {'img/icon-192.png', 'img/icon-512.png', 'img/apple-touch-icon.png',
-           'img/logo.png', 'img/logo-horizontal.png', 'img/logo-app.png'}
+           'img/logo.png', 'img/logo-horizontal.png', 'img/logo-app.png',
+           'img/logo-animado.svg'}
 
 VACIAS = {'img', 'br', 'meta', 'link', 'hr', 'input', 'path', 'source', 'use',
           'circle', 'rect', 'line', 'polygon', 'polyline', 'ellipse', 'stop', 'col'}
@@ -55,12 +73,35 @@ class Balance(HTMLParser):
             self.err.append('cierre sin apertura: </%s>' % tag)
 
 
-def url_esperada(archivo):
-    if archivo in SUBDOMINIOS:
-        return SUBDOMINIOS[archivo]
+def host_de(archivo):
+    return HOST_DE.get(archivo, PRINCIPAL)
+
+
+def url_de(archivo):
+    if archivo in URL_DE:
+        return URL_DE[archivo]
     if archivo == 'index.html':
         return PRINCIPAL + '/'
     return '%s/%s' % (PRINCIPAL, archivo[:-5])
+
+
+def destino_cruza_host(href, host_pagina):
+    """¿Este enlace relativo a la raíz apunta a otro host del que se sirve la página?
+
+    Devuelve el host correcto si cruza, o None si el enlace está bien.
+    """
+    ruta = href.lstrip('/').split('?')[0].split('#')[0]
+
+    # Un ancla suelta (/#algo) o la raíz pelada apuntan a la landing.
+    if ruta == '':
+        destino = PRINCIPAL
+    elif ruta.startswith(PREFIJOS_ESTATICOS) or ruta in ARCHIVOS_ESTATICOS:
+        return None
+    else:
+        archivo = ruta if ruta.endswith('.html') else ruta + '.html'
+        destino = host_de(archivo)
+
+    return None if destino == host_pagina else destino
 
 
 def validar(raiz):
@@ -72,6 +113,7 @@ def validar(raiz):
     usadas = set()
     for f in htmls:
         h = open(os.path.join(raiz, f), encoding='utf-8').read()
+        host = host_de(f)
 
         b = Balance()
         b.feed(h)
@@ -96,9 +138,16 @@ def validar(raiz):
                 problemas.append('%s: falta la imagen %s' % (f, r))
 
         # Enlaces con .html: Cloudflare los redirige y Google reporta error.
-        for m in set(re.findall(r'href="([^"]*\.html[^"]*)"', h)):
+        for m in sorted(set(re.findall(r'href="([^"]*\.html[^"]*)"', h))):
             if not m.startswith('http') or 'revivitucompu.com.ar' in m:
                 problemas.append('%s: enlace con .html → %s' % (f, m))
+
+        # Enlaces relativos a la raíz que cruzan de host: quedan rotos.
+        for m in sorted(set(re.findall(r'href="(/[^"]*)"', h))):
+            otro = destino_cruza_host(m, host)
+            if otro:
+                problemas.append('%s: se sirve desde %s y enlaza a %s, que vive en %s. '
+                                 'Tiene que ser absoluto.' % (f, host, m, otro))
 
         for etiqueta, patron in (
                 ('canonical', r'rel="canonical" href="([^"]+)"'),
@@ -106,26 +155,17 @@ def validar(raiz):
             for m in re.findall(patron, h):
                 if m.endswith('.html'):
                     problemas.append('%s: %s con .html → %s' % (f, etiqueta, m))
-                elif etiqueta == 'canonical' and m.rstrip('/') != url_esperada(f).rstrip('/'):
+                elif etiqueta == 'canonical' and m.rstrip('/') != url_de(f).rstrip('/'):
                     avisos.append('%s: canónica %s (esperaba %s)'
-                                  % (f, m, url_esperada(f)))
-
-        # Una página de subdominio con enlaces relativos a la raíz deja al
-        # visitante navegando el sitio entero bajo el subdominio equivocado.
-        if f in SUBDOMINIOS:
-            raiz_rel = [m for m in set(re.findall(r'href="(/[^/"][^"]*)"', h))]
-            if raiz_rel:
-                problemas.append('%s: se sirve desde un subdominio y tiene enlaces '
-                                 'relativos a la raíz (%s…). Tienen que ser absolutos.'
-                                 % (f, ', '.join(sorted(raiz_rel)[:3])))
+                                  % (f, m, url_de(f)))
 
         if '"aggregateRating"' in h:
             problemas.append('%s: tiene aggregateRating en el JSON-LD '
                              '(se sacó a propósito, da error en Search Console)' % f)
 
         if h.count('data:image/') > 1:
-            avisos.append('%s: tiene %d imágenes en base64; el sitio que se publica '
-                          'las lleva sueltas en img/' % (f, h.count('data:image/')))
+            avisos.append('%s: tiene %d imágenes en base64; pesan más que un archivo '
+                          'suelto en img/' % (f, h.count('data:image/')))
 
     carpeta_img = os.path.join(raiz, 'img')
     if os.path.isdir(carpeta_img):
@@ -151,7 +191,7 @@ def validar(raiz):
 
 
 def main():
-    raiz = sys.argv[1] if len(sys.argv) > 1 else '.'
+    raiz = sys.argv[1] if len(sys.argv) > 1 else 'public'
     problemas, avisos = validar(raiz)
     for a in avisos:
         print('aviso   ', a)
