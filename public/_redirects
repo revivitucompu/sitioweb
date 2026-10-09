@@ -1,0 +1,6 @@
+# La página de reseñas se dio de baja: ahora se ven en Google
+/resenas  https://maps.app.goo.gl/oarzMzpkbnn5ZTu77  301
+/resenas/ https://maps.app.goo.gl/oarzMzpkbnn5ZTu77  301
+
+# /empresas/ con barra final va a la página de empresas
+/empresas/ /empresas 301

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /taller/
+Disallow: /seguimiento/
+
+Sitemap: https://www.revivitucompu.com.ar/sitemap.xml

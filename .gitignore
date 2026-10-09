@@ -1,0 +1,9 @@
+.DS_Store
+._*
+.wrangler/
+node_modules/
+vista-previa-*.html
+*.zip
+.vscode/
+.idea/
+*.swp
