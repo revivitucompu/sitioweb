@@ -33,8 +33,6 @@ h2{font-size:1.5rem;margin:0 0 1rem}
 .btns{display:flex;flex-wrap:wrap;gap:.8rem}
 .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid transparent}
 .btn svg{width:20px;height:20px;flex:none}
-.btn-wa{background:var(--whatsapp);color:#04301a}
-.btn-wa:hover{background:#1FBB59}
 .btn-ghost{border-color:var(--line);color:var(--ink);background:var(--white)}
 .btn-ghost:hover{border-color:var(--cyan)}
 @media(max-width:480px){.btn{width:100%;justify-content:center}}
@@ -127,7 +125,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
     <div class="caja">
       <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h1>¡Listo, ya estás suscripto!</h1>
-      <p class="sub">Gracias por confiar en mí. La suscripción se empieza a cobrar recién cuando termina el mes de prueba.</p>
+      <p class="sub">La suscripción se empieza a cobrar recién cuando termina el mes de prueba.</p>
 
       <div class="nota">
         <p style="margin:0 0 .5rem"><b>Podés cancelar cuando quieras.</b> Si antes de que termine la prueba decidís que no te sirve, avisame o cancelala desde Mercado Pago, en <b>Suscripciones</b>, y no se te cobra nada.</p>
@@ -135,10 +133,6 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
       </div>
 
       <div class="btns">
-        <a class="btn btn-wa" id="btnWa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20ya%20me%20suscrib%C3%AD%20a%20la%20app%20de%20gesti%C3%B3n">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37 1 2.53c.12.16 1.72 2.62 4.16 3.67.58.25 1.04.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-          Avisarle a Juan
-        </a>
         <a class="btn btn-ghost" href="https://apps.revivitucompu.com.ar/">Volver a Apps para negocios</a>
       </div>
     </div>
@@ -177,8 +171,6 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   if (!/^[\w-]{4,80}$/.test(id)) return;
   document.getElementById('codigo').textContent = id;
   document.getElementById('codigoBox').hidden = false;
-  var texto = 'Hola Juan, ya me suscribí a la app de gestión. Mi código de suscripción es ' + id;
-  document.getElementById('btnWa').href = 'https://wa.me/5491123884677?text=' + encodeURIComponent(texto);
 })();
 </script>
 <script>
