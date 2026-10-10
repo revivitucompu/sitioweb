@@ -27,11 +27,6 @@ main{padding:clamp(2.5rem,7vw,5rem) 0}
 h1{font-size:clamp(2.2rem,6vw,3.2rem);margin-bottom:.8rem}
 .sub{color:var(--slate);font-size:1.1rem;margin:0 0 1.8rem}
 h2{font-size:1.5rem;margin:0 0 1rem}
-.pasos{list-style:none;margin:0 0 2rem;padding:0;counter-reset:p}
-.pasos li{counter-increment:p;position:relative;padding:0 0 1.1rem 3rem}
-.pasos li::before{content:counter(p);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--cyan);color:#fff;font-weight:600;display:grid;place-items:center;font-size:.95rem}
-.pasos b{display:block}
-.pasos span{color:var(--slate);font-size:.96rem}
 .nota{padding:1.1rem 1.3rem;background:var(--paper);border-left:4px solid var(--cyan);color:var(--slate);font-size:.95rem;margin-bottom:1.8rem}
 .nota b{color:var(--ink)}
 .codigo{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem;color:var(--ink);word-break:break-all}
@@ -132,14 +127,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
     <div class="caja">
       <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h1>¡Listo, ya estás suscripto!</h1>
-      <p class="sub">Gracias por confiar en mí. Tu mes de prueba ya está corriendo y no se te cobra nada hasta que termine.</p>
-
-      <h2>Qué pasa ahora</h2>
-      <ol class="pasos">
-        <li><b>Te escribo por WhatsApp</b><span>Para coordinar cómo seguimos, si todavía no lo hablamos.</span></li>
-        <li><b>Usás tu app un mes gratis</b><span>Te enseño a usarla y la vamos ajustando con lo que me vayas contando.</span></li>
-        <li><b>Recién después se hace el primer cobro</b><span>Mercado Pago lo cobra solo, en la tarjeta o la cuenta que elegiste, y te llega el comprobante.</span></li>
-      </ol>
+      <p class="sub">Gracias por confiar en mí. La suscripción se empieza a cobrar recién cuando termina el mes de prueba.</p>
 
       <div class="nota">
         <p style="margin:0 0 .5rem"><b>Podés cancelar cuando quieras.</b> Si antes de que termine la prueba decidís que no te sirve, avisame o cancelala desde Mercado Pago, en <b>Suscripciones</b>, y no se te cobra nada.</p>
