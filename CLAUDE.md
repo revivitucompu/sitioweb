@@ -124,7 +124,8 @@ buscalo en el bloque 0.**
 
 ```
 --cyan        #29AAE3   marca, botones, íconos
---cyan-dark   #1583B5   hover
+--cyan-dark   #126F9C   texto celeste (enlaces, precios), hover, banner remoto
+--cyan-deep   #0E5A80   final del degradé del banner remoto y de la cabecera de remoto
 --ink         #0E2230   texto principal y fondos oscuros
 --slate       #5A7183   texto secundario, epígrafes
 --line        #D9E6EF   bordes
@@ -162,6 +163,15 @@ a propósito. Las reseñas se muestran como texto, sin marcado de rating.
 `aria-label` en enlaces que son sólo ícono, `aria-hidden="true"` en SVG decorativos,
 `alt` descriptivo en capturas, roles `tab`/`tabpanel` en las solapas, `:focus-visible`
 con contorno naranja. No la pierdas al editar.
+
+Texto celeste sobre blanco va con `--cyan-dark`, nunca con `--cyan`: el celeste de
+marca da 2,6:1 de contraste y no se lee. Lo mismo para texto blanco sobre fondo
+celeste: el fondo arranca en `--cyan-dark`. Cada página tiene además un enlace
+"Saltar al contenido" (`.saltar`) que apunta al `<main id="principal">`, estrellas
+con `role="img"` y `aria-label="5 de 5 estrellas"`, y respeta
+`prefers-reduced-motion`. En celular el pie apila los enlaces (`.enlaces`) y los
+íconos sociales tienen 44 px de zona táctil. El logo del header es
+`img/logo-horizontal.webp`, no base64: así se descarga una sola vez.
 
 ---
 
