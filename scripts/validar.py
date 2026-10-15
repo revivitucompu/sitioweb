@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Valida el sitio de Reviví Tu Compu antes de publicarlo.
+"""Valida un sitio antes de publicarlo.
 
 Uso:
     python3 scripts/validar.py [carpeta]        # por defecto, public
+    python3 scripts/validar.py organizapp       # el sitio de OrganizApp
+
+public/ es Reviví Tu Compu (con sus subdominios); organizapp/ es otro sitio,
+con un solo host: www.organizapp.com.ar.
 
 Sale con código 1 si encuentra algo que rompe el sitio.
 """
@@ -14,7 +18,7 @@ import xml.dom.minidom
 from html.parser import HTMLParser
 
 PRINCIPAL = 'https://revivitucompu.com.ar'
-APPS = 'https://www.organizapp.com.ar'   # OrganizApp, mismo proyecto de Pages
+ORGANIZAPP = 'https://www.organizapp.com.ar'
 EMPRESAS = 'https://empresas.revivitucompu.com.ar'
 REMOTO = 'https://remoto.revivitucompu.com.ar'
 
@@ -22,34 +26,27 @@ REMOTO = 'https://remoto.revivitucompu.com.ar'
 HOST_DE = {
     'empresas.html':     EMPRESAS,
     'remoto.html':       REMOTO,
-    'apps.html':         APPS,
-    'relevamiento.html': APPS,
-    'suscripcion.html':  APPS,
 }
 
 # URL pública de cada página, para chequear la canónica.
 URL_DE = {
     'empresas.html':     EMPRESAS + '/',
     'remoto.html':       REMOTO + '/',
-    'apps.html':         APPS + '/',
-    'relevamiento.html': APPS + '/relevamiento',
-    'suscripcion.html':  APPS + '/suscripcion',
 }
 
 # Archivos que se sirven igual desde cualquier dominio: un enlace relativo a la
 # raíz que apunte a uno de estos funciona siempre.
 PREFIJOS_ESTATICOS = ('img/', 'js/', 'css/', 'taller/', 'seguimiento/')
-ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'sitemap-organizapp.xml',
-                      'site.webmanifest'}
+ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'site.webmanifest'}
 
 # Imágenes que no se referencian desde el HTML pero tienen que estar igual.
 SIEMPRE = {'img/icon-192.png', 'img/icon-512.png', 'img/apple-touch-icon.png',
            'img/logo.png', 'img/logo-horizontal.png', 'img/logo-app.png',
-           'img/logo-animado.svg',
-           # OrganizApp: se usan desde <link> y og:image, no desde src
-           'img/organizapp-favicon-32.png', 'img/organizapp-icon-192.png',
-           'img/organizapp-icon-512.png', 'img/organizapp-apple-touch-icon.png',
-           'img/organizapp-og.jpg'}
+           'img/logo-animado.svg'}
+
+# El sitio de OrganizApp: se usan desde <link> y og:image, no desde src.
+SIEMPRE_ORGANIZAPP = {'img/favicon-32.png', 'img/icon-192.png', 'img/icon-512.png',
+                      'img/apple-touch-icon.png', 'img/og.jpg'}
 
 VACIAS = {'img', 'br', 'meta', 'link', 'hr', 'input', 'path', 'source', 'use',
           'circle', 'rect', 'line', 'polygon', 'polyline', 'ellipse', 'stop', 'col'}
@@ -136,7 +133,7 @@ def validar(raiz):
                 problemas.append('%s: JSON-LD #%d inválido (%s)' % (f, n + 1, e))
 
         refs = (set(re.findall(r'src="(img/[^"]+)"', h))
-                | set(re.findall(r"url\('(img/[^']+)'\)", h)))
+                | set(re.findall(r"url\('/?(img/[^']+)'\)", h)))
         usadas |= refs
         for r in sorted(refs):
             if not os.path.exists(os.path.join(raiz, r)):
@@ -197,7 +194,11 @@ def validar(raiz):
 
 
 def main():
+    global PRINCIPAL, HOST_DE, URL_DE, SIEMPRE
     raiz = sys.argv[1] if len(sys.argv) > 1 else 'public'
+    if os.path.basename(os.path.normpath(raiz)) == 'organizapp':
+        # Un solo host: todo enlace relativo a la raíz se queda en OrganizApp.
+        PRINCIPAL, HOST_DE, URL_DE, SIEMPRE = ORGANIZAPP, {}, {}, SIEMPRE_ORGANIZAPP
     problemas, avisos = validar(raiz)
     for a in avisos:
         print('aviso   ', a)

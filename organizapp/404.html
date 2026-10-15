@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¡Suscripción confirmada! — OrganizApp</title>
-<meta name="description" content="Tu suscripción a OrganizApp quedó confirmada.">
+<title>No encontré esa página — OrganizApp</title>
+<meta name="description" content="Esa dirección no existe en OrganizApp.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://www.organizapp.com.ar/suscripcion">
 <meta name="theme-color" content="#5D62E9">
-<link rel="icon" href="/img/organizapp-favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="/img/organizapp-icon-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/img/organizapp-apple-touch-icon.png">
+<link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -122,7 +121,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <header class="st-top">
   <div class="st-wrap">
-    <a href="https://www.organizapp.com.ar/" aria-label="OrganizApp, ir al inicio"><img src="img/organizapp-logo.webp" width="501" height="96" alt="OrganizApp"></a>
+    <a href="https://www.organizapp.com.ar/" aria-label="OrganizApp, ir al inicio"><img src="img/logo.webp" width="501" height="96" alt="OrganizApp"></a>
     <nav>
       <div class="st-links" id="st-links">
         <a href="https://www.organizapp.com.ar/#problemas">¿Te suena?</a>
@@ -149,20 +148,10 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 <main id="principal">
   <div class="wrap">
     <div class="caja">
-      <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-      <h1>¡Listo, ya estás suscripto!</h1>
-      <p class="sub">La suscripción se empieza a cobrar recién cuando termina el mes de prueba.</p>
-
-      <div class="nota">
-        <p style="margin:0 0 .5rem"><b>Podés cancelar cuando quieras.</b> Si antes de que termine la prueba decidís que no te sirve, avisame o cancelala desde Mercado Pago, en <b>Suscripciones</b>, y no se te cobra nada.</p>
-        <div id="codigoBox" hidden>
-          <p style="margin:0">Tu código de suscripción: <span class="codigo" id="codigo"></span> <button type="button" class="copiar" id="copiar">Copiar</button></p>
-          <p style="margin:.5rem 0 0">Guardalo: si en tu app no aparece la suscripción, pegalo en <b>Suscripción</b> → <b>¿Te suscribiste y no aparece?</b></p>
-        </div>
-      </div>
-
+      <h1>No encontré esa página</h1>
+      <p class="sub">Puede que el enlace esté mal escrito o que la página ya no exista.</p>
       <div class="btns">
-        <a class="btn btn-ghost" href="https://www.organizapp.com.ar/">Volver a OrganizApp</a>
+        <a class="btn btn-ghost" href="/">Ir al inicio de OrganizApp</a>
       </div>
     </div>
   </div>
@@ -189,20 +178,6 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   });
   m.addEventListener('click',function(e){
     if(e.target.tagName==='A'){m.classList.remove('st-abierto');b.setAttribute('aria-expanded','false');}
-  });
-})();
-</script>
-<script>
-(function(){
-  // Mercado Pago agrega el número de la suscripción a la dirección (preapproval_id)
-  var q = new URLSearchParams(location.search);
-  var id = q.get('preapproval_id') || q.get('preapproval') || '';
-  if (!/^[\w-]{4,80}$/.test(id)) return;
-  document.getElementById('codigo').textContent = id;
-  document.getElementById('codigoBox').hidden = false;
-  document.getElementById('copiar').addEventListener('click', function () {
-    var b = this;
-    navigator.clipboard.writeText(id).then(function () { b.textContent = 'Copiado'; }, function () { b.textContent = 'No se pudo copiar'; });
   });
 })();
 </script>

@@ -4,3 +4,11 @@
 
 # /empresas/ con barra final va a la página de empresas
 /empresas/ /empresas 301
+
+# OrganizApp se mudó a su propio sitio (carpeta organizapp/ del repo).
+# apps.revivitucompu.com.ar tiene una reescritura de / a /apps, así que esto
+# también manda ahí a quien entre por la dirección vieja.
+/apps          https://www.organizapp.com.ar/              301
+/apps/         https://www.organizapp.com.ar/              301
+/relevamiento  https://www.organizapp.com.ar/relevamiento  301
+/suscripcion   https://www.organizapp.com.ar/suscripcion   301

@@ -6,8 +6,13 @@ Profile y WhatsApp, su canal de captación.
 
 HTML estático, sin build ni dependencias. Se publica en Cloudflare Pages.
 
-El sitio está en `public/`; en la raíz del repo quedan este archivo, `scripts/` y
-`.gitignore`, que no se publican.
+El repo tiene **dos sitios**, cada uno en su carpeta y con su propio proyecto de Pages:
+
+- `public/` — Reviví Tu Compu (`revivitucompu.com.ar` y sus subdominios).
+- `organizapp/` — OrganizApp (`www.organizapp.com.ar`), las apps de gestión. Ver
+  *OrganizApp* más abajo.
+
+En la raíz quedan este archivo, `scripts/` y `.gitignore`, que no se publican.
 
 ---
 
@@ -43,9 +48,6 @@ def rep(old, new, n=1):
 | `terminos.html` | `/terminos` | Términos y condiciones |
 | `empresas.html` | `empresas.revivitucompu.com.ar` | Soporte IT para empresas |
 | `remoto.html` | `remoto.revivitucompu.com.ar` | Tutorial de AnyDesk, solapas Windows/Mac |
-| `apps.html` | `www.organizapp.com.ar` | **OrganizApp**: apps de gestión por suscripción |
-| `relevamiento.html` | `www.organizapp.com.ar/relevamiento` | Cuestionario de OrganizApp |
-| `suscripcion.html` | `www.organizapp.com.ar/suscripcion` | Confirmación de suscripción (vuelta de Mercado Pago) |
 | `404.html` | — | Página de error |
 | `taller/` | `/taller` | Sistema de gestión del taller (privado, `noindex`) |
 | `seguimiento/` | `/seguimiento` | Seguimiento de órdenes |
@@ -62,8 +64,8 @@ redirección"**: la página no se indexa. Ya pasó una vez y costó una tarde.
 Los archivos en disco **siguen llamándose** `empresas.html`. Lo que cambia es a dónde
 apuntan, no cómo se llaman.
 
-**2. Las páginas de subdominio usan URLs absolutas.** `empresas.html`, `remoto.html`,
-`apps.html`, `relevamiento.html` y `suscripcion.html` se sirven desde su propio
+**2. Las páginas de subdominio usan URLs absolutas.** `empresas.html` y `remoto.html`
+se sirven desde su propio
 subdominio, así que sus enlaces internos al sitio principal son absolutos
 (`https://revivitucompu.com.ar/servicios`), no relativos. Si fueran relativos, el
 visitante quedaría navegando todo el sitio bajo el subdominio equivocado, con el
@@ -74,20 +76,33 @@ dominio personalizado en Pages y una regla de reescritura por cada uno.
 
 ### OrganizApp
 
-Desde octubre de 2026 la landing de apps es una marca propia, **OrganizApp**
-("powered by Reviví Tu Compu"), en `www.organizapp.com.ar`. Sigue viviendo en este
-mismo proyecto de Pages: `apps.html`, `relevamiento.html` y `suscripcion.html` se
-sirven desde ese dominio y `apps.revivitucompu.com.ar` redirige ahí con un 301 que
-conserva la ruta.
+Desde octubre de 2026 las apps de gestión son una marca propia, **OrganizApp**
+("powered by Reviví Tu Compu"), y un **sitio aparte** en la carpeta `organizapp/`,
+publicado en su propio proyecto de Pages (`organizapp`) en `www.organizapp.com.ar`:
 
-Esas tres páginas tienen su propio header y pie (logo de OrganizApp, menú con las
-secciones de la landing, enlace a Reviví Tu Compu) y su propia paleta, la del logo:
-`--brand #5D62E9` (índigo; botones y texto de enlaces sobre blanco, 4,8:1),
-`--brand-dark #4A4FD6` (hover, texto), `--green #119D71` (tildes, bordes, acentos) y
-`--green-dark #0B7A57` (etiquetas con texto blanco: el verde de marca da 3,4:1 y no
-alcanza). No uses el celeste ni el naranja de RTC en ellas. Logos e íconos en
-`img/organizapp-*`. Su sitemap es `sitemap-organizapp.xml`, declarado en `robots.txt`.
-Los enlaces del sitio de RTC a OrganizApp van siempre a `https://www.organizapp.com.ar/`.
+| Archivo | URL pública | Qué es |
+|---|---|---|
+| `organizapp/index.html` | `www.organizapp.com.ar/` | Landing: qué hace, rubros, planes, preguntas |
+| `organizapp/relevamiento.html` | `/relevamiento` | Cuestionario (va a la planilla "Relevamientos" por Apps Script) |
+| `organizapp/suscripcion.html` | `/suscripcion` | Confirmación de suscripción: vuelta de Mercado Pago, muestra el código |
+| `organizapp/404.html` | — | Página de error |
+
+Es un solo host, así que adentro de `organizapp/` los enlaces relativos a la raíz
+(`/relevamiento`) están bien. Tiene su `favicon.ico`, `robots.txt`, `sitemap.xml` y
+`_redirects` (`/apps` → `/`, el nombre viejo de la landing). Las imágenes van en
+`organizapp/img/` sin prefijo.
+
+Header y pie propios (logo de OrganizApp, menú con las secciones de la landing,
+enlace a Reviví Tu Compu) y paleta propia, la del logo: `--brand #5D62E9` (índigo;
+botones y texto de enlaces sobre blanco, 4,8:1), `--brand-dark #4A4FD6` (hover,
+texto), `--green #119D71` (tildes, bordes, acentos) y `--green-dark #0B7A57`
+(etiquetas con texto blanco: el verde de marca da 3,4:1 y no alcanza). No uses el
+celeste ni el naranja de RTC ahí. La tabla de *Variables de color* de abajo es la de
+RTC.
+
+Desde `public/` los enlaces a OrganizApp van siempre a `https://www.organizapp.com.ar/`.
+`public/_redirects` manda `/apps`, `/relevamiento` y `/suscripcion` a OrganizApp con
+301, para los enlaces viejos y para `apps.revivitucompu.com.ar`.
 
 ---
 
@@ -218,15 +233,16 @@ de Juan: publicarlos invita a que cualquiera le mande pedidos de conexión.
 
 ## Publicar
 
-El sitio vive en `public/`. Todo lo que esté fuera de esa carpeta —este archivo,
-`scripts/`, `.gitignore`— queda en el repo pero **no se publica**.
+Cada sitio se publica por separado. Lo que está fuera de `public/` y `organizapp/`
+—este archivo, `scripts/`, `.gitignore`— queda en el repo pero **no se publica**.
 
 ```bash
-./scripts/publicar.sh
+./scripts/publicar.sh               # Reviví Tu Compu → proyecto revivitucompu
+./scripts/publicar.sh organizapp    # OrganizApp → proyecto organizapp
 ```
 
-Valida y después publica con `wrangler` contra el proyecto `revivitucompu` de Cloudflare
-Pages.
+Cada uno valida y después publica con `wrangler`. El de OrganizApp crea el proyecto la
+primera vez y publica siempre a producción (`--branch=main`).
 
 **Por qué wrangler y no una conexión con Git:** el proyecto de Pages se creó como
 "subida directa" y Cloudflare no permite convertirlo. Migrarlo significaría crear un
@@ -238,6 +254,7 @@ Para validar sin publicar:
 
 ```bash
 python3 scripts/validar.py public
+python3 scripts/validar.py organizapp
 ```
 
 Chequea balance de etiquetas, JSON-LD parseable, imágenes que faltan o que ya no usa
@@ -254,11 +271,11 @@ nada que no pase.**
   proyecto, cada uno con una regla de reescritura de `/` a su página. Hubo dos reglas
   de página viejas que redirigían `remoto` y `apps` con un 301 a la URL larga; están
   **desactivadas**, no borradas.
-- **OrganizApp:** `www.organizapp.com.ar` (y el apex) son dominios personalizados del
-  mismo proyecto; en la zona `organizapp.com.ar` hay una reescritura de `/` a `/apps`
-  y un redirect del apex a `www`. `apps.revivitucompu.com.ar` quedó como dominio del
-  proyecto sólo para que resuelva: una regla de redirección lo manda con 301 a
-  `www.organizapp.com.ar` conservando la ruta.
+- **OrganizApp:** proyecto de Pages aparte, `organizapp` (subida directa), con
+  `www.organizapp.com.ar` como dominio personalizado y un redirect del apex a `www`.
+  No necesita reescritura: su portada es `index.html`. `apps.revivitucompu.com.ar`
+  sigue en el proyecto `revivitucompu` sólo para que resuelva; lo manda a OrganizApp
+  `public/_redirects` (o una regla de redirección en la zona, que es más directa).
   La zona `organizapp.com.ar` la comparte con la plataforma de las apps (repo
   `plataforma-saas`): un Worker atiende `*.organizapp.com.ar/*`, uno por cliente.
   `www` sólo llega a este sitio porque tiene una **ruta de exclusión sin Worker**

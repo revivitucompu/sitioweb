@@ -4,4 +4,3 @@ Disallow: /taller/
 Disallow: /seguimiento/
 
 Sitemap: https://www.revivitucompu.com.ar/sitemap.xml
-Sitemap: https://www.organizapp.com.ar/sitemap-organizapp.xml
