@@ -259,6 +259,10 @@ nada que no pase.**
   y un redirect del apex a `www`. `apps.revivitucompu.com.ar` quedó como dominio del
   proyecto sólo para que resuelva: una regla de redirección lo manda con 301 a
   `www.organizapp.com.ar` conservando la ruta.
+  La zona `organizapp.com.ar` la comparte con la plataforma de las apps (repo
+  `plataforma-saas`): un Worker atiende `*.organizapp.com.ar/*`, uno por cliente.
+  `www` sólo llega a este sitio porque tiene una **ruta de exclusión sin Worker**
+  en "Rutas de Workers". No la borres: sin ella el comodín se queda con www.
 - **Analítica:** Cloudflare Web Analytics (sin cookies, por eso el sitio no necesita
   banner de consentimiento). No agregues Google Analytics sin hablarlo.
 - **Search Console:** propiedad verificada por TXT. Después de un cambio grande,
