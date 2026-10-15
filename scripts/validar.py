@@ -14,7 +14,7 @@ import xml.dom.minidom
 from html.parser import HTMLParser
 
 PRINCIPAL = 'https://revivitucompu.com.ar'
-APPS = 'https://apps.revivitucompu.com.ar'
+APPS = 'https://www.organizapp.com.ar'   # OrganizApp, mismo proyecto de Pages
 EMPRESAS = 'https://empresas.revivitucompu.com.ar'
 REMOTO = 'https://remoto.revivitucompu.com.ar'
 
@@ -39,12 +39,17 @@ URL_DE = {
 # Archivos que se sirven igual desde cualquier dominio: un enlace relativo a la
 # raíz que apunte a uno de estos funciona siempre.
 PREFIJOS_ESTATICOS = ('img/', 'js/', 'css/', 'taller/', 'seguimiento/')
-ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'site.webmanifest'}
+ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'sitemap-organizapp.xml',
+                      'site.webmanifest'}
 
 # Imágenes que no se referencian desde el HTML pero tienen que estar igual.
 SIEMPRE = {'img/icon-192.png', 'img/icon-512.png', 'img/apple-touch-icon.png',
            'img/logo.png', 'img/logo-horizontal.png', 'img/logo-app.png',
-           'img/logo-animado.svg'}
+           'img/logo-animado.svg',
+           # OrganizApp: se usan desde <link> y og:image, no desde src
+           'img/organizapp-favicon-32.png', 'img/organizapp-icon-192.png',
+           'img/organizapp-icon-512.png', 'img/organizapp-apple-touch-icon.png',
+           'img/organizapp-og.jpg'}
 
 VACIAS = {'img', 'br', 'meta', 'link', 'hr', 'input', 'path', 'source', 'use',
           'circle', 'rect', 'line', 'polygon', 'polyline', 'ellipse', 'stop', 'col'}
@@ -139,7 +144,8 @@ def validar(raiz):
 
         # Enlaces con .html: Cloudflare los redirige y Google reporta error.
         for m in sorted(set(re.findall(r'href="([^"]*\.html[^"]*)"', h))):
-            if not m.startswith('http') or 'revivitucompu.com.ar' in m:
+            if (not m.startswith('http') or 'revivitucompu.com.ar' in m
+                    or 'organizapp.com.ar' in m):
                 problemas.append('%s: enlace con .html → %s' % (f, m))
 
         # Enlaces relativos a la raíz que cruzan de host: quedan rotos.

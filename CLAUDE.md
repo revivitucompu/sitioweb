@@ -43,9 +43,9 @@ def rep(old, new, n=1):
 | `terminos.html` | `/terminos` | Términos y condiciones |
 | `empresas.html` | `empresas.revivitucompu.com.ar` | Soporte IT para empresas |
 | `remoto.html` | `remoto.revivitucompu.com.ar` | Tutorial de AnyDesk, solapas Windows/Mac |
-| `apps.html` | `apps.revivitucompu.com.ar` | Apps de gestión por suscripción |
-| `relevamiento.html` | `apps.revivitucompu.com.ar/relevamiento` | Formulario de relevamiento |
-| `suscripcion.html` | `apps.revivitucompu.com.ar/suscripcion` | Confirmación de suscripción |
+| `apps.html` | `www.organizapp.com.ar` | **OrganizApp**: apps de gestión por suscripción |
+| `relevamiento.html` | `www.organizapp.com.ar/relevamiento` | Cuestionario de OrganizApp |
+| `suscripcion.html` | `www.organizapp.com.ar/suscripcion` | Confirmación de suscripción (vuelta de Mercado Pago) |
 | `404.html` | — | Página de error |
 | `taller/` | `/taller` | Sistema de gestión del taller (privado, `noindex`) |
 | `seguimiento/` | `/seguimiento` | Seguimiento de órdenes |
@@ -71,6 +71,23 @@ contenido duplicado en dos dominios.
 
 Cada una declara como canónica su propio subdominio, y eso hoy es cierto: hay un
 dominio personalizado en Pages y una regla de reescritura por cada uno.
+
+### OrganizApp
+
+Desde octubre de 2026 la landing de apps es una marca propia, **OrganizApp**
+("powered by Reviví Tu Compu"), en `www.organizapp.com.ar`. Sigue viviendo en este
+mismo proyecto de Pages: `apps.html`, `relevamiento.html` y `suscripcion.html` se
+sirven desde ese dominio y `apps.revivitucompu.com.ar` redirige ahí con un 301 que
+conserva la ruta.
+
+Esas tres páginas tienen su propio header y pie (logo de OrganizApp, menú con las
+secciones de la landing, enlace a Reviví Tu Compu) y su propia paleta, la del logo:
+`--brand #5D62E9` (índigo; botones y texto de enlaces sobre blanco, 4,8:1),
+`--brand-dark #4A4FD6` (hover, texto), `--green #119D71` (tildes, bordes, acentos) y
+`--green-dark #0B7A57` (etiquetas con texto blanco: el verde de marca da 3,4:1 y no
+alcanza). No uses el celeste ni el naranja de RTC en ellas. Logos e íconos en
+`img/organizapp-*`. Su sitemap es `sitemap-organizapp.xml`, declarado en `robots.txt`.
+Los enlaces del sitio de RTC a OrganizApp van siempre a `https://www.organizapp.com.ar/`.
 
 ---
 
@@ -233,10 +250,15 @@ nada que no pase.**
 
 - **Hosting y DNS:** Cloudflare Pages, proyecto `revivitucompu` (subida directa).
 - **Dominio:** registrado en NIC.ar, delegado a los nameservers de Cloudflare.
-- **Subdominios:** `empresas`, `remoto` y `apps` son dominios personalizados del
+- **Subdominios:** `empresas` y `remoto` son dominios personalizados del
   proyecto, cada uno con una regla de reescritura de `/` a su página. Hubo dos reglas
   de página viejas que redirigían `remoto` y `apps` con un 301 a la URL larga; están
   **desactivadas**, no borradas.
+- **OrganizApp:** `www.organizapp.com.ar` (y el apex) son dominios personalizados del
+  mismo proyecto; en la zona `organizapp.com.ar` hay una reescritura de `/` a `/apps`
+  y un redirect del apex a `www`. `apps.revivitucompu.com.ar` quedó como dominio del
+  proyecto sólo para que resuelva: una regla de redirección lo manda con 301 a
+  `www.organizapp.com.ar` conservando la ruta.
 - **Analítica:** Cloudflare Web Analytics (sin cookies, por eso el sitio no necesita
   banner de consentimiento). No agregues Google Analytics sin hablarlo.
 - **Search Console:** propiedad verificada por TXT. Después de un cambio grande,

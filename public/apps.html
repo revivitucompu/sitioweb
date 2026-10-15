@@ -3,20 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apps de gestión a medida para tu negocio — Reviví Tu Compu</title>
-<meta name="description" content="Apps de gestión hechas a medida para talleres, comercios, consultorios y pymes: clientes, órdenes de trabajo, stock, turnos y avisos por WhatsApp. Desde el celular o la compu, con soporte de Juan, de Reviví Tu Compu.">
-<link rel="canonical" href="https://apps.revivitucompu.com.ar/">
+<title>OrganizApp — Apps de gestión a medida para tu negocio</title>
+<meta name="description" content="Apps de gestión hechas a medida para talleres, comercios, consultorios y pymes: clientes, órdenes de trabajo, stock, turnos y avisos por WhatsApp. Desde el celular o la compu, con soporte directo de Juan. OrganizApp es un servicio de Reviví Tu Compu.">
+<link rel="canonical" href="https://www.organizapp.com.ar/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#29AAE3">
-<link rel="icon" href="https://www.revivitucompu.com.ar/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="https://www.revivitucompu.com.ar/img/apple-touch-icon.png">
+<meta name="theme-color" content="#5D62E9">
+<link rel="icon" href="/img/organizapp-favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/img/organizapp-icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/img/organizapp-apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
-<meta property="og:site_name" content="Reviví Tu Compu">
-<meta property="og:title" content="Apps de gestión a medida para tu negocio — Reviví Tu Compu">
+<meta property="og:site_name" content="OrganizApp">
+<meta property="og:title" content="OrganizApp — Apps de gestión a medida para tu negocio">
 <meta property="og:description" content="Clientes, órdenes de trabajo, stock, turnos y avisos por WhatsApp en una app hecha para tu negocio.">
-<meta property="og:url" content="https://apps.revivitucompu.com.ar/">
-<meta property="og:image" content="https://www.revivitucompu.com.ar/img/portada.jpg">
+<meta property="og:url" content="https://www.organizapp.com.ar/">
+<meta property="og:image" content="https://www.organizapp.com.ar/img/organizapp-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de OrganizApp, powered by Reviví Tu Compu">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +29,10 @@
 {
   "@context":"https://schema.org",
   "@type":"Service",
-  "name":"Apps de gestión a medida para negocios",
+  "name":"OrganizApp",
+  "alternateName":"Apps de gestión a medida para negocios",
+  "url":"https://www.organizapp.com.ar/",
+  "logo":"https://www.organizapp.com.ar/img/organizapp-icon-512.png",
   "serviceType":"Desarrollo de aplicaciones de gestión",
   "provider":{"@type":"ComputerRepairService","name":"Reviví Tu Compu","url":"https://www.revivitucompu.com.ar/","telephone":"+5491123884677"},
   "areaServed":{"@type":"Country","name":"Argentina"},
@@ -35,9 +42,11 @@
 </script>
 <style>
 :root{
-  --cyan:#29AAE3; --cyan-dark:#126F9C;
-  --cyan-deep:#0E5A80; --orange:#F15A25; --ink:#0E2230; --slate:#5A7183;
-  --paper:#F4F8FB; --line:#D9E6EF; --white:#fff; --whatsapp:#25D366;
+  /* OrganizApp: índigo y verde del logo */
+  --brand:#5D62E9; --brand-dark:#4A4FD6; --brand-deep:#3A3FB8; --brand-soft:#EEEFFD;
+  --green:#119D71; --green-dark:#0B7A57; --green-soft:#E7F6F0;
+  --night:#16173F; --ink:#0E2230; --slate:#5A7183;
+  --paper:#F5F6FD; --line:#E1E2F0; --white:#fff; --whatsapp:#25D366;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -47,7 +56,7 @@ h1{font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.01em}
 h2{font-size:clamp(1.9rem,4vw,2.8rem)}
 h3{font-size:1.3rem}
 p{margin:0 0 1rem}
-a{color:var(--cyan-dark)}
+a{color:var(--brand-dark)}
 .wrap{width:min(1120px,92vw);margin-inline:auto}
 section{padding:clamp(3.5rem,8vw,6rem) 0}
 .lede{color:var(--slate);max-width:62ch}
@@ -60,32 +69,32 @@ h2 + .lede{margin-top:.9rem}
 .top img{height:46px;width:auto;display:block}
 .top nav{margin-left:auto;display:flex;gap:1.6rem;align-items:center}
 .top nav a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500}
-.top nav a:hover,.top nav a[aria-current]{color:var(--cyan-dark)}
+.top nav a:hover,.top nav a[aria-current]{color:var(--brand-dark)}
 @media(max-width:860px){.top nav a:not(.btn){display:none}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid transparent;white-space:nowrap}
 .btn-wa{background:var(--whatsapp);color:#04301a}
 .btn-wa:hover{background:#1FBB59}
-.btn-main{background:var(--orange);color:#fff}
-.btn-main:hover{background:#D94A18}
+.btn-main{background:var(--brand);color:#fff}
+.btn-main:hover{background:var(--brand-deep)}
 .btn-ghost{border-color:var(--line);color:var(--ink);background:var(--white)}
-.btn-ghost:hover{border-color:var(--cyan)}
+.btn-ghost:hover{border-color:var(--brand)}
 .btn svg{width:20px;height:20px;flex:none}
 @media(max-width:480px){.btn{white-space:normal;justify-content:center}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;color:#fff;
-  background:linear-gradient(100deg,rgba(10,26,37,.96) 0%,rgba(10,26,37,.88) 45%,rgba(10,26,37,.66) 100%),
+  background:linear-gradient(100deg,rgba(22,23,63,.97) 0%,rgba(22,23,63,.9) 45%,rgba(22,23,63,.7) 100%),
              url('/img/portada-apps.jpg') center/cover no-repeat}
-.hero .kicker{color:#7FD1F2}
+.hero .kicker{color:#B4B6FF}
 .hero .btn-ghost{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
-.hero .btn-ghost:hover{border-color:var(--cyan);background:rgba(255,255,255,.08)}
+.hero .btn-ghost:hover{border-color:var(--brand);background:rgba(255,255,255,.08)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding-block:clamp(3.5rem,8vw,6rem)}
-.kicker{display:inline-block;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan-dark);margin-bottom:.9rem}
+.kicker{display:inline-block;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:.9rem}
 .hero h1{margin-bottom:1.1rem;color:#fff}
-.hero h1 span{color:var(--orange)}
-.hero .sub{font-size:1.15rem;color:#C3D8E6;max-width:46ch;margin-bottom:1.8rem}
+.hero h1 span{color:#2FC08E}
+.hero .sub{font-size:1.15rem;color:#D3D5F2;max-width:46ch;margin-bottom:1.8rem}
 .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
 .mock{width:100%;height:auto;max-width:380px;margin-inline:auto;display:block}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:2rem}.mock{max-width:340px;margin-inline:auto;display:block}}
@@ -107,7 +116,7 @@ h2 + .lede{margin-top:.9rem}
 
 .modulos{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
 .modulo{background:var(--white);border:1px solid var(--line);padding:1.3rem 1.2rem;border-radius:4px}
-.modulo svg{width:30px;height:30px;color:var(--cyan);margin-bottom:.6rem}
+.modulo svg{width:30px;height:30px;color:var(--brand);margin-bottom:.6rem}
 .modulo h3{font-size:1.12rem;margin-bottom:.3rem}
 .modulo p{color:var(--slate);font-size:.9rem;margin:0;line-height:1.45}
 @media(max-width:960px){.modulos{grid-template-columns:repeat(2,1fr)}}
@@ -119,7 +128,7 @@ h2 + .lede{margin-top:.9rem}
 /* pasos */
 .pasos{counter-reset:paso;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:2.5rem}
 .paso{counter-increment:paso;position:relative;padding-top:3.2rem}
-.paso::before{content:counter(paso);position:absolute;top:0;left:0;font-family:'Archivo Narrow',sans-serif;font-size:2.6rem;font-weight:700;color:var(--cyan);line-height:1}
+.paso::before{content:counter(paso);position:absolute;top:0;left:0;font-family:'Archivo Narrow',sans-serif;font-size:2.6rem;font-weight:700;color:var(--brand);line-height:1}
 .paso::after{content:"";position:absolute;top:1.35rem;left:2.4rem;right:-1rem;height:2px;background:var(--line)}
 .paso:last-child::after{display:none}
 .paso h3{font-size:1.1rem;margin-bottom:.35rem}
@@ -130,25 +139,25 @@ h2 + .lede{margin-top:.9rem}
 .abono{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .lista{list-style:none;padding:0;margin:0}
 .lista li{padding:.75rem 0 .75rem 2rem;border-bottom:1px solid var(--line);position:relative}
-.lista li::before{content:"";position:absolute;left:0;top:1.05rem;width:18px;height:10px;border-left:3px solid var(--cyan);border-bottom:3px solid var(--cyan);transform:rotate(-45deg)}
+.lista li::before{content:"";position:absolute;left:0;top:1.05rem;width:18px;height:10px;border-left:3px solid var(--green);border-bottom:3px solid var(--green);transform:rotate(-45deg)}
 .lista b{display:block}
 .lista span{color:var(--slate);font-size:.93rem}
-.nota{padding:1.3rem 1.4rem;background:var(--paper);border-left:4px solid var(--cyan);color:var(--slate);font-size:.97rem}
+.nota{padding:1.3rem 1.4rem;background:var(--paper);border-left:4px solid var(--brand);color:var(--slate);font-size:.97rem}
 .nota p:last-child{margin-bottom:0}
 .nota b{color:var(--ink)}
 @media(max-width:860px){.abono{grid-template-columns:1fr;gap:2rem}}
 
 /* planes */
 .promo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
-.promo-item{background:#E9F6FC;border:2px solid var(--cyan);border-radius:10px;padding:1.1rem 1.3rem}
-.promo-item.or{background:#FEF0EA;border-color:var(--orange)}
-.promo-item .promo-tag{display:inline-block;background:var(--orange);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:.15rem .6rem;border-radius:999px;margin-bottom:.45rem}
+.promo-item{background:var(--brand-soft);border:2px solid var(--brand);border-radius:10px;padding:1.1rem 1.3rem}
+.promo-item.or{background:var(--green-soft);border-color:var(--green)}
+.promo-item .promo-tag{display:inline-block;background:var(--green-dark);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:.15rem .6rem;border-radius:999px;margin-bottom:.45rem}
 .promo-item b{display:block;font-family:'Archivo Narrow',sans-serif;font-size:1.35rem}
 .promo-item span{color:var(--slate);font-size:.95rem}
 .planes{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:1.2rem;margin-top:1.4rem;align-items:start}
 .plan{position:relative;border:1px solid var(--line);border-radius:10px;padding:1.8rem 1.6rem;background:var(--white);display:flex;flex-direction:column}
-.plan.dest{border:2px solid var(--orange);box-shadow:0 12px 30px rgba(241,90,37,.12)}
-.plan .tag{position:absolute;top:-.8rem;left:1.4rem;background:var(--orange);color:#fff;font-size:.8rem;font-weight:600;padding:.2rem .7rem;border-radius:999px}
+.plan.dest{border:2px solid var(--green);box-shadow:0 12px 30px rgba(17,157,113,.14)}
+.plan .tag{position:absolute;top:-.8rem;left:1.4rem;background:var(--green-dark);color:#fff;font-size:.8rem;font-weight:600;padding:.2rem .7rem;border-radius:999px}
 .precio{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:4rem;line-height:1;margin:.8rem 0 .4rem}
 .precio .mon{font-size:1.5rem;vertical-align:top;margin-right:.2rem}
 .precio small{font-size:1.1rem;color:var(--slate);font-weight:600;margin-left:.3rem}
@@ -163,15 +172,15 @@ h2 + .lede{margin-top:.9rem}
 @media(max-width:620px){.planes,.promo{grid-template-columns:1fr}}
 
 /* clientes */
-.cliente{background:var(--ink);color:#fff}
+.cliente{background:var(--night);color:#fff}
 .cliente h2{color:#fff}
 .cliente .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
-.cliente p{color:#C8DCE8}
+.cliente p{color:#D3D5F2}
 .resenas{display:grid;gap:1rem}
-.resena{border:1px solid #24435A;padding:1.2rem 1.3rem}
+.resena{border:1px solid #34367A;padding:1.2rem 1.3rem}
 .resena .stars{display:block;font-size:1.02rem;color:#FFC93C;letter-spacing:2px;margin-bottom:.6rem}
 .resena p{color:#fff;font-size:.98rem;margin-bottom:.6rem}
-.resena cite{font-style:normal;font-weight:600;font-size:.88rem;color:#9FC0D4}
+.resena cite{font-style:normal;font-weight:600;font-size:.88rem;color:#B9BCE8}
 @media(max-width:860px){.cliente .wrap{grid-template-columns:1fr;gap:2rem}}
 
 /* faq */
@@ -179,7 +188,7 @@ h2 + .lede{margin-top:.9rem}
 .faq details{border-bottom:1px solid var(--line);padding:1rem 0}
 .faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--cyan-dark);font-size:1.4rem;line-height:1}
+.faq summary::after{content:"+";color:var(--brand-dark);font-size:1.4rem;line-height:1}
 .faq details[open] summary::after{content:"–"}
 .faq details p{color:var(--slate);margin:.7rem 0 0}
 
@@ -192,7 +201,7 @@ h2 + .lede{margin-top:.9rem}
 footer{border-top:1px solid var(--line);padding:2.5rem 0;font-size:.9rem;color:var(--slate)}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:var(--slate)}
-:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 
 /* ---------- accesibilidad y táctil (revisión UI/UX, oct 2026) ---------- */
 .saltar{position:absolute;left:1rem;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:.7rem 1.1rem;border-radius:8px;text-decoration:none;font-weight:600}
@@ -217,65 +226,57 @@ footer .social svg{width:24px;height:24px}
 }
 </style>
 <style>
-/* ---------- menú del sitio (igual en todas las páginas) ---------- */
-.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #D9E6EF;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
+/* ---------- menú de OrganizApp (igual en las tres páginas) ---------- */
+.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
 .st-top .st-wrap{position:relative;display:flex;align-items:center;gap:1rem;height:70px;width:min(1120px,92vw);margin-inline:auto;padding:0;max-width:none}
 .st-top a{display:inline-flex;color:#0E2230;text-decoration:none}
-.st-top img{height:42px;width:auto;display:block;object-fit:initial}
+.st-top img{height:36px;width:auto;display:block;object-fit:initial}
 .st-top nav{margin-left:auto;display:flex;gap:1.6rem;align-items:center}
 .st-top nav a{font-size:.95rem;font-weight:500}
-.st-top nav a:hover,.st-top nav a[aria-current]{color:#126F9C}
+.st-top nav a:hover,.st-top nav a[aria-current]{color:#4A4FD6}
 .st-links{display:flex;gap:1.35rem;align-items:center}
 .st-links a{white-space:nowrap}
 .links-sec{display:flex;align-items:center;gap:.5rem;margin-left:.25rem}
-.links-sec a{border:1px solid #D9E6EF;border-radius:999px;padding:.38rem .9rem;font-size:.9rem;background:#fff;line-height:1.2}
-.links-sec a:hover{border-color:#29AAE3;color:#126F9C;background:#F4F8FB}
-.links a.activo,.st-links a.activo{color:#126F9C}
-.links-sec a.activo{border-color:#29AAE3;color:#126F9C;background:#EAF6FC}
+.links-sec a{border:1px solid #E1E2F0;border-radius:999px;padding:.38rem .9rem;font-size:.9rem;background:#fff;line-height:1.2}
+.links-sec a:hover{border-color:#5D62E9;color:#4A4FD6;background:#F5F6FD}
+.links a.activo,.st-links a.activo{color:#4A4FD6}
+.links-sec a.activo{border-color:#5D62E9;color:#4A4FD6;background:#EEEFFD}
 .st-top .st-wa{align-items:center;gap:.55rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:500;font-size:.95rem;border:2px solid transparent;white-space:nowrap;background:#25D366;color:#04301a}
 .st-top .st-wa:hover{background:#1FBB59;color:#04301a}
 .st-wa svg{width:20px;height:20px;flex:none}
 .st-burger{display:none;background:none;border:0;padding:.5rem;cursor:pointer;color:#0E2230;border-radius:8px}
-.st-burger:hover{background:#F4F8FB}
+.st-burger:hover{background:#F5F6FD}
 .st-burger svg{width:26px;height:26px;stroke:currentColor;stroke-width:2;stroke-linecap:round;display:block}
 @media(max-width:1120px){
   .st-burger{display:inline-flex}
   .st-links{display:none;position:absolute;top:70px;left:-4vw;right:-4vw;flex-direction:column;
-    align-items:stretch;gap:0;background:#fff;border-top:1px solid #D9E6EF;
-    border-bottom:1px solid #D9E6EF;box-shadow:0 14px 30px rgba(14,34,48,.12);padding:.3rem 0;z-index:60}
+    align-items:stretch;gap:0;background:#fff;border-top:1px solid #E1E2F0;
+    border-bottom:1px solid #E1E2F0;box-shadow:0 14px 30px rgba(22,23,63,.12);padding:.3rem 0;z-index:60}
   .st-links.st-abierto{display:flex}
   .st-links a{padding:.95rem 5vw;font-size:1.02rem}
-  .st-links a+a{border-top:1px solid #D9E6EF}
-  .links-sec{flex-direction:column;align-items:stretch;gap:0;margin:0;padding:0;border-left:0;border-top:1px solid #D9E6EF;background:#F4F8FB}
+  .st-links a+a{border-top:1px solid #E1E2F0}
+  .links-sec{flex-direction:column;align-items:stretch;gap:0;margin:0;padding:0;border-left:0;border-top:1px solid #E1E2F0;background:#F5F6FD}
   .links-sec a{border:0;border-radius:0;background:transparent;padding:.95rem 5vw;font-size:1.02rem}
-  .links-sec a+a{border-top:1px solid #D9E6EF}
+  .links-sec a+a{border-top:1px solid #E1E2F0}
 }
-@media(max-width:430px){.st-top .st-wa{padding:.7rem 1rem}}
+@media(max-width:430px){.st-top .st-wrap{gap:.6rem}.st-top img{height:30px}.st-top nav{gap:.5rem}.st-top .st-wa{padding:.6rem .85rem}}
+@media(max-width:360px){.st-top .st-wa{font-size:0;gap:0;padding:.7rem}}
 @media print{.st-top{display:none}}
 </style>
 <style>
-/* ---------- pie de página (igual en todas las páginas) ---------- */
-footer{border-top:1px solid #D9E6EF;padding:2.5rem 0;font-size:.9rem;color:#5A7183;background:#fff;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;text-align:left}
+/* ---------- pie de OrganizApp (igual en las tres páginas) ---------- */
+footer{border-top:1px solid #E1E2F0;padding:2.5rem 0;font-size:.9rem;color:#5A7183;background:#fff;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;text-align:left}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;width:min(1120px,92vw);margin-inline:auto;max-width:none;padding:0}
 footer a{color:#5A7183}
-footer a:hover{color:#126F9C}
+footer a:hover{color:#4A4FD6}
 footer .social{display:flex;gap:.9rem;align-items:center}
 footer .social a{display:inline-flex;color:#5A7183}
-footer .social a:hover{color:#29AAE3}
+footer .social a:hover{color:#5D62E9}
 footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
 @media print{footer{display:none}}
 </style>
 <style>
-/* ---------- submenú de la página ---------- */
-.subnav{position:sticky;top:70px;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid #D9E6EF}
-.subnav .wrap{display:flex;gap:1.5rem;align-items:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
-  width:min(1120px,92vw);margin-inline:auto;padding:0;max-width:none}
-.subnav .wrap::-webkit-scrollbar{display:none}
-.subnav a{white-space:nowrap;padding:.85rem 0;font-size:.93rem;font-weight:500;color:#5A7183;text-decoration:none;border-bottom:2px solid transparent;display:inline-flex}
-.subnav a:hover{color:#126F9C}
-.subnav a.activo{color:#0E2230;border-bottom-color:#29AAE3}
-@media(max-width:700px){.subnav .wrap{gap:1.1rem}.subnav a{font-size:.88rem}}
-.subnav + *, [id]{scroll-margin-top:124px}
+[id]{scroll-margin-top:86px}
 </style>
 </head>
 <body>
@@ -283,21 +284,20 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <header class="st-top">
   <div class="st-wrap">
-    <a href="https://www.revivitucompu.com.ar/" aria-label="Ir al inicio"><img src="img/logo-horizontal.webp" width="560" height="219" alt="Reviví Tu Compu"></a>
+    <a href="https://www.organizapp.com.ar/" aria-label="OrganizApp, ir al inicio"><img src="img/organizapp-logo.webp" width="501" height="96" alt="OrganizApp"></a>
     <nav>
       <div class="st-links" id="st-links">
-        <a href="https://www.revivitucompu.com.ar/#sintomas">¿Qué le pasa?</a>
-        <a href="https://www.revivitucompu.com.ar/#servicios">Servicios</a>
-        <a href="https://www.revivitucompu.com.ar/#remoto">Remoto</a>
-        <a href="https://www.revivitucompu.com.ar/#trabajos">Trabajos</a>
-        <a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77">Reseñas</a>
-        <a href="https://www.revivitucompu.com.ar/#donde">Ubicación</a>
+        <a href="#problemas">¿Te suena?</a>
+        <a href="#modulos">Qué hace</a>
+        <a href="#rubros">Para qué negocios</a>
+        <a href="#como">Cómo trabajo</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">Preguntas</a>
         <span class="links-sec">
-          <a href="https://www.revivitucompu.com.ar/empresas">Empresas</a>
-          <a href="https://apps.revivitucompu.com.ar/">Apps</a>
+          <a href="https://www.revivitucompu.com.ar/">Reviví Tu Compu</a>
         </span>
       </div>
-      <a class="st-wa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20te%20escribo%20desde%20la%20web">
+      <a class="st-wa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20te%20escribo%20desde%20la%20web%20de%20OrganizApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37 1 2.53c.12.16 1.72 2.62 4.16 3.67.58.25 1.04.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
         WhatsApp
       </a>
@@ -312,7 +312,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 <div class="hero">
   <div class="wrap">
     <div>
-      <span class="kicker">Nuevo en Reviví Tu Compu · 1 mes de prueba gratis</span>
+      <span class="kicker">De Reviví Tu Compu · 1 mes de prueba gratis</span>
       <h1>Tu negocio, ordenado en una app <span>a tu medida.</span></h1>
       <p class="sub">Clientes, órdenes de trabajo, stock, turnos y avisos por WhatsApp en un solo lugar. La usás desde el celular o la compu, y yo me encargo de que funcione.</p>
       <div class="hero-cta">
@@ -322,32 +322,32 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
     </div>
     <div>
       <svg class="mock" viewBox="0 0 460 340" role="img" aria-label="Ilustración de una app de gestión con órdenes de trabajo en la pantalla de un monitor y un celular">
-        <rect x="14" y="14" width="360" height="232" rx="20" fill="#fff" stroke="#29AAE3" stroke-width="10"/>
-        <rect x="36" y="38" width="316" height="26" rx="6" fill="#E6F4FB"/>
-        <rect x="46" y="46" width="90" height="10" rx="5" fill="#29AAE3"/>
+        <rect x="14" y="14" width="360" height="232" rx="20" fill="#fff" stroke="#5D62E9" stroke-width="10"/>
+        <rect x="36" y="38" width="316" height="26" rx="6" fill="#EEEFFD"/>
+        <rect x="46" y="46" width="90" height="10" rx="5" fill="#5D62E9"/>
         <g font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#0E2230">
           <rect x="36" y="78" width="316" height="34" rx="6" fill="#F4F8FB"/>
           <rect x="48" y="90" width="120" height="10" rx="5" fill="#5A7183" opacity=".55"/>
-          <rect x="262" y="86" width="78" height="18" rx="9" fill="#F15A25"/>
+          <rect x="262" y="86" width="78" height="18" rx="9" fill="#A9ACF6"/>
           <rect x="36" y="120" width="316" height="34" rx="6" fill="#F4F8FB"/>
           <rect x="48" y="132" width="150" height="10" rx="5" fill="#5A7183" opacity=".55"/>
-          <rect x="262" y="128" width="78" height="18" rx="9" fill="#29AAE3"/>
+          <rect x="262" y="128" width="78" height="18" rx="9" fill="#5D62E9"/>
           <rect x="36" y="162" width="316" height="34" rx="6" fill="#F4F8FB"/>
           <rect x="48" y="174" width="100" height="10" rx="5" fill="#5A7183" opacity=".55"/>
-          <rect x="262" y="170" width="78" height="18" rx="9" fill="#25D366"/>
+          <rect x="262" y="170" width="78" height="18" rx="9" fill="#119D71"/>
           <rect x="36" y="204" width="200" height="22" rx="6" fill="#F4F8FB"/>
         </g>
-        <path d="M160 246 h68 l14 30 h-96 z" fill="#29AAE3"/>
-        <rect x="140" y="276" width="108" height="13" rx="6.5" fill="#29AAE3"/>
-        <rect x="318" y="118" width="128" height="208" rx="18" fill="#0E2230"/>
+        <path d="M160 246 h68 l14 30 h-96 z" fill="#5D62E9"/>
+        <rect x="140" y="276" width="108" height="13" rx="6.5" fill="#5D62E9"/>
+        <rect x="318" y="118" width="128" height="208" rx="18" fill="#16173F"/>
         <rect x="328" y="134" width="108" height="176" rx="8" fill="#fff"/>
-        <rect x="338" y="146" width="88" height="12" rx="6" fill="#29AAE3"/>
-        <rect x="338" y="168" width="88" height="40" rx="6" fill="#E9FBF0"/>
-        <rect x="346" y="178" width="60" height="7" rx="3.5" fill="#1FBB59"/>
-        <rect x="346" y="191" width="44" height="7" rx="3.5" fill="#1FBB59" opacity=".6"/>
+        <rect x="338" y="146" width="88" height="12" rx="6" fill="#5D62E9"/>
+        <rect x="338" y="168" width="88" height="40" rx="6" fill="#E7F6F0"/>
+        <rect x="346" y="178" width="60" height="7" rx="3.5" fill="#119D71"/>
+        <rect x="346" y="191" width="44" height="7" rx="3.5" fill="#119D71" opacity=".6"/>
         <rect x="338" y="218" width="88" height="24" rx="6" fill="#F4F8FB"/>
         <rect x="338" y="250" width="88" height="24" rx="6" fill="#F4F8FB"/>
-        <rect x="338" y="282" width="88" height="18" rx="9" fill="#F15A25"/>
+        <rect x="338" y="282" width="88" height="18" rx="9" fill="#119D71"/>
       </svg>
     </div>
   </div>
@@ -362,16 +362,6 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   </div>
 </div>
 
-<nav class="subnav" aria-label="Secciones de esta página">
-  <div class="wrap">
-    <a href="#problemas">¿Te suena?</a>
-    <a href="#modulos">Qué hace</a>
-    <a href="#rubros">Para qué negocios</a>
-    <a href="#como">Cómo trabajo</a>
-    <a href="#planes">Planes</a>
-    <a href="#faq">Preguntas</a>
-  </div>
-</nav>
 
 
 <section id="problemas">
@@ -485,7 +475,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   <div class="wrap">
     <div>
       <h2>La misma atención, ahora para tu negocio</h2>
-      <p style="margin-top:1rem">Desde 2020 reparo compus y doy soporte técnico a particulares y empresas en Caballito y en remoto. Los clientes valoran que les explico todo, que cumplo los tiempos y que siempre les respondo yo.</p>
+      <p style="margin-top:1rem">OrganizApp lo hago yo, Juan, el mismo de Reviví Tu Compu. Desde 2020 reparo compus y doy soporte técnico a particulares y empresas en Caballito y en remoto. Los clientes valoran que les explico todo, que cumplo los tiempos y que siempre les respondo yo.</p>
       <p>Con las apps trabajo igual: te escucho, te digo qué conviene y no te vendo lo que no necesitás.</p>
       <p><b style="color:#fff">¿Ya sos cliente de Reviví Tu Compu?</b> Entonces ya sabés cómo trabajo. Escribime y lo charlamos.</p>
     </div>
@@ -493,7 +483,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
       <div class="resena"><span class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><p>"Juan responde rápido y te ofrece una solución cómoda y versátil que se ajusta a tus necesidades. ¡Recomiendo!"</p><cite>Vicky Bottazzi · Google</cite></div>
       <div class="resena"><span class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><p>"Lo recomiendo por la calidad del servicio, el precio justo y el plazo de entrega. Además me hizo un presupuesto dentro de mi real necesidad."</p><cite>Amira Ezzeddine · Google</cite></div>
       <div class="resena"><span class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><p>"Excelente servicio, muy preciso, prolijo y sobre todo muy profesional. Súper agradecido: un antes y un después."</p><cite>Rodrigo Birabent · Google</cite></div>
-      <p style="margin:.4rem 0 0"><a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77" target="_blank" rel="noopener" style="color:#9FC0D4">Ver las 238 reseñas en Google</a></p>
+      <p style="margin:.4rem 0 0"><a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77" target="_blank" rel="noopener" style="color:#B9BCE8">Ver las 238 reseñas en Google</a></p>
     </div>
   </div>
 </section>
@@ -533,8 +523,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <footer>
   <div class="wrap">
-    <span>Reviví Tu Compu — Servicio técnico informático en Caballito, CABA</span>
-    <span class="enlaces"><a href="https://www.revivitucompu.com.ar/servicios">Todos los servicios</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/empresas">Empresas</a><span class="sep" aria-hidden="true"> · </span><a href="https://apps.revivitucompu.com.ar/">Apps para negocios</a><span class="sep" aria-hidden="true"> · </span><a href="https://remoto.revivitucompu.com.ar/">Conexión remota</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/preguntas-frecuentes">Preguntas frecuentes</a><span class="sep" aria-hidden="true"> · </span><a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77" target="_blank" rel="noopener">Reseñas</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/quien-te-atiende">Quién te atiende</a><span class="sep" aria-hidden="true"> · </span><a href="https://wa.me/5491123884677">WhatsApp</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/terminos">Términos y condiciones</a></span>
+    <span>OrganizApp — Apps de gestión para tu negocio. Un servicio de <a href="https://www.revivitucompu.com.ar/">Reviví Tu Compu</a></span>
+    <span class="enlaces"><a href="#modulos">Qué hace</a><span class="sep" aria-hidden="true"> · </span><a href="#planes">Planes y precios</a><span class="sep" aria-hidden="true"> · </span><a href="#faq">Preguntas frecuentes</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.organizapp.com.ar/relevamiento">Cuestionario</a><span class="sep" aria-hidden="true"> · </span><a href="https://wa.me/5491123884677">WhatsApp</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/terminos">Términos y condiciones</a></span>
     <span class="social"><a href="https://www.instagram.com/revivitucompu" target="_blank" rel="noopener" aria-label="Instagram de Reviví Tu Compu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.6 3.2h8.8a4.4 4.4 0 0 1 4.4 4.4v8.8a4.4 4.4 0 0 1-4.4 4.4H7.6a4.4 4.4 0 0 1-4.4-4.4V7.6a4.4 4.4 0 0 1 4.4-4.4Z"/><circle cx="12" cy="12" r="3.9"/><path d="M17.3 6.8h.01"/></svg></a><a href="https://www.facebook.com/revivitucompu" target="_blank" rel="noopener" aria-label="Facebook de Reviví Tu Compu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.6 21.5v-8h2.7l.5-3.4h-3.2V7.9c0-1 .3-1.7 1.7-1.7h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.8H8.6v3.4h2.7v8"/><path d="M4.2 3.2h15.6a1 1 0 0 1 1 1v15.6a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1V4.2a1 1 0 0 1 1-1Z"/></svg></a></span>
     <!-- Si no querés publicar el CUIT, borrá la línea de abajo -->
     <span>Monotributista · CUIT 20-29250132-4</span>
@@ -566,25 +556,6 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
       });
     });
   });
-})();
-</script>
-<script>
-(function(){
-  var enlaces=[].slice.call(document.querySelectorAll('.subnav a'));
-  if(!enlaces.length || !('IntersectionObserver' in window)) return;
-  var secciones=enlaces.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-  function marcar(el){
-    enlaces.forEach(function(a,i){
-      var on = secciones[i]===el;
-      if(on && !a.classList.contains('activo') && a.scrollIntoView) a.scrollIntoView({block:'nearest', inline:'center'});
-      a.classList.toggle('activo', on);
-    });
-  }
-  var obs=new IntersectionObserver(function(entradas){
-    var visibles=entradas.filter(function(e){return e.isIntersecting;});
-    if(visibles.length) marcar(visibles.sort(function(a,b){return a.boundingClientRect.top-b.boundingClientRect.top;})[0].target);
-  }, {rootMargin:'-130px 0px -60% 0px'});
-  secciones.forEach(function(s){ if(s) obs.observe(s); });
 })();
 </script>
 <script>

@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Relevamiento para tu app de gestión — Reviví Tu Compu</title>
+<title>Cuestionario para tu app de gestión — OrganizApp</title>
 <meta name="description" content="Contame cómo trabaja tu negocio y armo una app de gestión a tu medida: clientes, órdenes de trabajo, stock, turnos y más.">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#29AAE3">
-<link rel="icon" href="https://www.revivitucompu.com.ar/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="https://www.revivitucompu.com.ar/img/apple-touch-icon.png">
-<link rel="canonical" href="https://apps.revivitucompu.com.ar/relevamiento">
+<meta name="theme-color" content="#5D62E9">
+<link rel="icon" href="/img/organizapp-favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/img/organizapp-icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/img/organizapp-apple-touch-icon.png">
+<link rel="canonical" href="https://www.organizapp.com.ar/relevamiento">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --brand:#29AAE3; --brand-dark:#1580B3; --brand-soft:#E8F6FC;
-  --ink:#16222B; --muted:#5B6B77; --line:#DCE5EB; --bg:#F5F8FA; --card:#FFFFFF;
+  --brand:#5D62E9; --brand-dark:#4A4FD6; --brand-soft:#EEEFFD; --green:#119D71;
+  --ink:#16222B; --muted:#5B6B77; --line:#E1E2F0; --bg:#F5F6FD; --card:#FFFFFF;
   --ok:#1E9E62; --err:#C8412F;
 }
 *{box-sizing:border-box}
@@ -26,14 +27,14 @@ h1,h2,legend{font-family:"Archivo Narrow","Arial Narrow",sans-serif}
 a{color:var(--brand-dark)}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 .hero{position:relative;color:#fff;padding:clamp(1.5rem,3.4vw,2.3rem) 0;
-  background:linear-gradient(100deg,rgba(10,26,37,.96) 0%,rgba(10,26,37,.88) 45%,rgba(10,26,37,.68) 100%),
+  background:linear-gradient(100deg,rgba(22,23,63,.97) 0%,rgba(22,23,63,.9) 45%,rgba(22,23,63,.72) 100%),
              url('/img/portada-apps.jpg') center/cover no-repeat}
-.hero .miga{font-size:.9rem;color:#9FC0D4;margin:0 0 .8rem}
-.hero .miga a{color:#9FC0D4}
+.hero .miga{font-size:.9rem;color:#B9BCE8;margin:0 0 .8rem}
+.hero .miga a{color:#B9BCE8}
 .hero h1{margin:0;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.1}
-.hero h1 span{color:#F15A24}
-.hero .sub{margin:.9rem 0 0;color:#C3D8E6;font-size:1.08rem}
-.hero .dato{margin:.8rem 0 0;color:#9FC0D4;font-size:.95rem}
+.hero h1 span{color:#2FC08E}
+.hero .sub{margin:.9rem 0 0;color:#D3D5F2;font-size:1.08rem}
+.hero .dato{margin:.8rem 0 0;color:#B9BCE8;font-size:.95rem}
 .hero .dato b{color:#fff}
 .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px 12px;font-size:.85rem}
@@ -78,7 +79,7 @@ button{font:inherit;border:0;border-radius:10px;padding:12px 18px;cursor:pointer
 .btn-reset{background:transparent;color:var(--muted);text-decoration:underline;padding:12px 6px}
 .trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .listo{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 20px;text-align:center}
-.listo .tilde{width:62px;height:62px;border-radius:50%;background:var(--brand);display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:2rem;line-height:1}
+.listo .tilde{width:62px;height:62px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:2rem;line-height:1}
 .listo h2{margin:0 0 8px}
 .listo p{color:var(--muted);max-width:52ch;margin:0 auto}
 #msg{margin-top:12px;font-size:.92rem;min-height:1.4em}
@@ -109,75 +110,75 @@ footer .social svg{width:24px;height:24px}
 }
 </style>
 <style>
-/* ---------- menú del sitio (igual en todas las páginas) ---------- */
-.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #D9E6EF;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
+/* ---------- menú de OrganizApp (igual en las tres páginas) ---------- */
+.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
 .st-top .st-wrap{position:relative;display:flex;align-items:center;gap:1rem;height:70px;width:min(1120px,92vw);margin-inline:auto;padding:0;max-width:none}
 .st-top a{display:inline-flex;color:#0E2230;text-decoration:none}
-.st-top img{height:42px;width:auto;display:block;object-fit:initial}
+.st-top img{height:36px;width:auto;display:block;object-fit:initial}
 .st-top nav{margin-left:auto;display:flex;gap:1.6rem;align-items:center}
 .st-top nav a{font-size:.95rem;font-weight:500}
-.st-top nav a:hover,.st-top nav a[aria-current]{color:#126F9C}
+.st-top nav a:hover,.st-top nav a[aria-current]{color:#4A4FD6}
 .st-links{display:flex;gap:1.35rem;align-items:center}
 .st-links a{white-space:nowrap}
 .links-sec{display:flex;align-items:center;gap:.5rem;margin-left:.25rem}
-.links-sec a{border:1px solid #D9E6EF;border-radius:999px;padding:.38rem .9rem;font-size:.9rem;background:#fff;line-height:1.2}
-.links-sec a:hover{border-color:#29AAE3;color:#126F9C;background:#F4F8FB}
-.links a.activo,.st-links a.activo{color:#126F9C}
-.links-sec a.activo{border-color:#29AAE3;color:#126F9C;background:#EAF6FC}
+.links-sec a{border:1px solid #E1E2F0;border-radius:999px;padding:.38rem .9rem;font-size:.9rem;background:#fff;line-height:1.2}
+.links-sec a:hover{border-color:#5D62E9;color:#4A4FD6;background:#F5F6FD}
+.links a.activo,.st-links a.activo{color:#4A4FD6}
+.links-sec a.activo{border-color:#5D62E9;color:#4A4FD6;background:#EEEFFD}
 .st-top .st-wa{align-items:center;gap:.55rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:500;font-size:.95rem;border:2px solid transparent;white-space:nowrap;background:#25D366;color:#04301a}
 .st-top .st-wa:hover{background:#1FBB59;color:#04301a}
 .st-wa svg{width:20px;height:20px;flex:none}
 .st-burger{display:none;background:none;border:0;padding:.5rem;cursor:pointer;color:#0E2230;border-radius:8px}
-.st-burger:hover{background:#F4F8FB}
+.st-burger:hover{background:#F5F6FD}
 .st-burger svg{width:26px;height:26px;stroke:currentColor;stroke-width:2;stroke-linecap:round;display:block}
 @media(max-width:1120px){
   .st-burger{display:inline-flex}
   .st-links{display:none;position:absolute;top:70px;left:-4vw;right:-4vw;flex-direction:column;
-    align-items:stretch;gap:0;background:#fff;border-top:1px solid #D9E6EF;
-    border-bottom:1px solid #D9E6EF;box-shadow:0 14px 30px rgba(14,34,48,.12);padding:.3rem 0;z-index:60}
+    align-items:stretch;gap:0;background:#fff;border-top:1px solid #E1E2F0;
+    border-bottom:1px solid #E1E2F0;box-shadow:0 14px 30px rgba(22,23,63,.12);padding:.3rem 0;z-index:60}
   .st-links.st-abierto{display:flex}
   .st-links a{padding:.95rem 5vw;font-size:1.02rem}
-  .st-links a+a{border-top:1px solid #D9E6EF}
-  .links-sec{flex-direction:column;align-items:stretch;gap:0;margin:0;padding:0;border-left:0;border-top:1px solid #D9E6EF;background:#F4F8FB}
+  .st-links a+a{border-top:1px solid #E1E2F0}
+  .links-sec{flex-direction:column;align-items:stretch;gap:0;margin:0;padding:0;border-left:0;border-top:1px solid #E1E2F0;background:#F5F6FD}
   .links-sec a{border:0;border-radius:0;background:transparent;padding:.95rem 5vw;font-size:1.02rem}
-  .links-sec a+a{border-top:1px solid #D9E6EF}
+  .links-sec a+a{border-top:1px solid #E1E2F0}
 }
-@media(max-width:430px){.st-top .st-wa{padding:.7rem 1rem}}
+@media(max-width:430px){.st-top .st-wrap{gap:.6rem}.st-top img{height:30px}.st-top nav{gap:.5rem}.st-top .st-wa{padding:.6rem .85rem}}
+@media(max-width:360px){.st-top .st-wa{font-size:0;gap:0;padding:.7rem}}
 @media print{.st-top{display:none}}
 </style>
 <style>
-/* ---------- pie de página (igual en todas las páginas) ---------- */
-footer{border-top:1px solid #D9E6EF;padding:2.5rem 0;font-size:.9rem;color:#5A7183;background:#fff;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;text-align:left}
+/* ---------- pie de OrganizApp (igual en las tres páginas) ---------- */
+footer{border-top:1px solid #E1E2F0;padding:2.5rem 0;font-size:.9rem;color:#5A7183;background:#fff;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;text-align:left}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;width:min(1120px,92vw);margin-inline:auto;max-width:none;padding:0}
 footer a{color:#5A7183}
-footer a:hover{color:#126F9C}
+footer a:hover{color:#4A4FD6}
 footer .social{display:flex;gap:.9rem;align-items:center}
 footer .social a{display:inline-flex;color:#5A7183}
-footer .social a:hover{color:#29AAE3}
+footer .social a:hover{color:#5D62E9}
 footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
 @media print{footer{display:none}}
 </style>
 </head>
-<body data-menu="apps">
+<body>
 <a class="saltar" href="#principal">Saltar al contenido</a>
 
 <header class="st-top">
   <div class="st-wrap">
-    <a href="https://www.revivitucompu.com.ar/" aria-label="Ir al inicio"><img src="img/logo-horizontal.webp" width="560" height="219" alt="Reviví Tu Compu"></a>
+    <a href="https://www.organizapp.com.ar/" aria-label="OrganizApp, ir al inicio"><img src="img/organizapp-logo.webp" width="501" height="96" alt="OrganizApp"></a>
     <nav>
       <div class="st-links" id="st-links">
-        <a href="https://www.revivitucompu.com.ar/#sintomas">¿Qué le pasa?</a>
-        <a href="https://www.revivitucompu.com.ar/#servicios">Servicios</a>
-        <a href="https://www.revivitucompu.com.ar/#remoto">Remoto</a>
-        <a href="https://www.revivitucompu.com.ar/#trabajos">Trabajos</a>
-        <a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77">Reseñas</a>
-        <a href="https://www.revivitucompu.com.ar/#donde">Ubicación</a>
+        <a href="https://www.organizapp.com.ar/#problemas">¿Te suena?</a>
+        <a href="https://www.organizapp.com.ar/#modulos">Qué hace</a>
+        <a href="https://www.organizapp.com.ar/#rubros">Para qué negocios</a>
+        <a href="https://www.organizapp.com.ar/#como">Cómo trabajo</a>
+        <a href="https://www.organizapp.com.ar/#planes">Planes</a>
+        <a href="https://www.organizapp.com.ar/#faq">Preguntas</a>
         <span class="links-sec">
-          <a href="https://www.revivitucompu.com.ar/empresas">Empresas</a>
-          <a href="https://apps.revivitucompu.com.ar/">Apps</a>
+          <a href="https://www.revivitucompu.com.ar/">Reviví Tu Compu</a>
         </span>
       </div>
-      <a class="st-wa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20te%20escribo%20desde%20la%20web">
+      <a class="st-wa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20te%20escribo%20desde%20la%20web%20de%20OrganizApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37 1 2.53c.12.16 1.72 2.62 4.16 3.67.58.25 1.04.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
         WhatsApp
       </a>
@@ -190,7 +191,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section class="hero">
   <div class="wrap">
-    <p class="miga"><a href="https://www.revivitucompu.com.ar/">Inicio</a> › <a href="https://apps.revivitucompu.com.ar/">Apps</a> › Relevamiento</p>
+    <p class="miga"><a href="https://www.organizapp.com.ar/">OrganizApp</a> › Cuestionario</p>
     <h1>Contame cómo trabaja tu negocio y te armo la <span>app a tu medida</span></h1>
     <p class="sub">Clientes, órdenes de trabajo, presupuestos, stock, turnos y avisos por WhatsApp, en un solo lugar y desde el celular o la compu.</p>
     <p class="dato">Completar esto te lleva unos 10 minutos. Con tus respuestas ya tengo todo para diseñar tu sistema, y lo probás <b>1 mes gratis</b>.</p>
@@ -369,8 +370,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <footer>
   <div class="wrap">
-    <span>Reviví Tu Compu — Servicio técnico informático en Caballito, CABA</span>
-    <span class="enlaces"><a href="https://www.revivitucompu.com.ar/servicios">Todos los servicios</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/empresas">Empresas</a><span class="sep" aria-hidden="true"> · </span><a href="https://apps.revivitucompu.com.ar/">Apps para negocios</a><span class="sep" aria-hidden="true"> · </span><a href="https://remoto.revivitucompu.com.ar/">Conexión remota</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/preguntas-frecuentes">Preguntas frecuentes</a><span class="sep" aria-hidden="true"> · </span><a href="https://maps.app.goo.gl/oarzMzpkbnn5ZTu77" target="_blank" rel="noopener">Reseñas</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/quien-te-atiende">Quién te atiende</a><span class="sep" aria-hidden="true"> · </span><a href="https://wa.me/5491123884677">WhatsApp</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/terminos">Términos y condiciones</a></span>
+    <span>OrganizApp — Apps de gestión para tu negocio. Un servicio de <a href="https://www.revivitucompu.com.ar/">Reviví Tu Compu</a></span>
+    <span class="enlaces"><a href="https://www.organizapp.com.ar/#modulos">Qué hace</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.organizapp.com.ar/#planes">Planes y precios</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.organizapp.com.ar/#faq">Preguntas frecuentes</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.organizapp.com.ar/relevamiento">Cuestionario</a><span class="sep" aria-hidden="true"> · </span><a href="https://wa.me/5491123884677">WhatsApp</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.revivitucompu.com.ar/terminos">Términos y condiciones</a></span>
     <span class="social"><a href="https://www.instagram.com/revivitucompu" target="_blank" rel="noopener" aria-label="Instagram de Reviví Tu Compu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.6 3.2h8.8a4.4 4.4 0 0 1 4.4 4.4v8.8a4.4 4.4 0 0 1-4.4 4.4H7.6a4.4 4.4 0 0 1-4.4-4.4V7.6a4.4 4.4 0 0 1 4.4-4.4Z"/><circle cx="12" cy="12" r="3.9"/><path d="M17.3 6.8h.01"/></svg></a><a href="https://www.facebook.com/revivitucompu" target="_blank" rel="noopener" aria-label="Facebook de Reviví Tu Compu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.6 21.5v-8h2.7l.5-3.4h-3.2V7.9c0-1 .3-1.7 1.7-1.7h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.8H8.6v3.4h2.7v8"/><path d="M4.2 3.2h15.6a1 1 0 0 1 1 1v15.6a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1V4.2a1 1 0 0 1 1-1Z"/></svg></a></span>
     <!-- Si no querés publicar el CUIT, borrá la línea de abajo -->
     <span>Monotributista · CUIT 20-29250132-4</span>
