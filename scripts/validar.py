@@ -36,7 +36,7 @@ URL_DE = {
 
 # Archivos que se sirven igual desde cualquier dominio: un enlace relativo a la
 # raíz que apunte a uno de estos funciona siempre.
-PREFIJOS_ESTATICOS = ('img/', 'js/', 'css/', 'taller/', 'seguimiento/')
+PREFIJOS_ESTATICOS = ('img/', 'js/', 'css/')
 ARCHIVOS_ESTATICOS = {'favicon.ico', 'robots.txt', 'sitemap.xml', 'site.webmanifest'}
 
 # Imágenes que no se referencian desde el HTML pero tienen que estar igual.
