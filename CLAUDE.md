@@ -67,7 +67,7 @@ apuntan, no cómo se llaman.
 **2. Las páginas de subdominio usan URLs absolutas.** `empresas.html` y `remoto.html`
 se sirven desde su propio
 subdominio, así que sus enlaces internos al sitio principal son absolutos
-(`https://revivitucompu.com.ar/servicios`), no relativos. Si fueran relativos, el
+(`https://www.revivitucompu.com.ar/servicios`), no relativos. Si fueran relativos, el
 visitante quedaría navegando todo el sitio bajo el subdominio equivocado, con el
 contenido duplicado en dos dominios.
 

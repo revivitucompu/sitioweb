@@ -17,7 +17,7 @@ import sys
 import xml.dom.minidom
 from html.parser import HTMLParser
 
-PRINCIPAL = 'https://revivitucompu.com.ar'
+PRINCIPAL = 'https://www.revivitucompu.com.ar'
 ORGANIZAPP = 'https://www.organizapp.com.ar'
 EMPRESAS = 'https://empresas.revivitucompu.com.ar'
 REMOTO = 'https://remoto.revivitucompu.com.ar'
