@@ -49,7 +49,7 @@ def rep(old, new, n=1):
 | `empresas.html` | `empresas.revivitucompu.com.ar` | Soporte IT para empresas |
 | `remoto.html` | `remoto.revivitucompu.com.ar` | Tutorial de AnyDesk, solapas Windows/Mac |
 | `404.html` | — | Página de error |
-| `taller/` | `/taller` | Sistema de gestión del taller (privado, `noindex`) |
+| `taller/config.js` | `/taller/config.js` | Sólo la configuración (URL del Apps Script) que lee `seguimiento/`. El sistema del taller migró a la plataforma de OrganizApp |
 | `seguimiento/` | `/seguimiento` | Seguimiento de órdenes |
 
 ---
