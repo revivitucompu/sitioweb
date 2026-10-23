@@ -40,10 +40,12 @@
   "offers":[{"@type":"Offer","name":"Plan mensual","price":"20","priceCurrency":"USD"},{"@type":"Offer","name":"Plan anual","price":"200","priceCurrency":"USD"}]
 }
 </script>
+<script>document.documentElement.className+=' js'</script>
 <style>
 :root{
   /* OrganizApp: índigo y verde del logo */
   --brand:#5D62E9; --brand-dark:#4A4FD6; --brand-deep:#3A3FB8; --brand-soft:#EEEFFD;
+  --ease:cubic-bezier(.4,0,.2,1);
   --green:#119D71; --green-dark:#0B7A57; --green-soft:#E7F6F0;
   --night:#16173F; --ink:#0E2230; --slate:#5A7183;
   --paper:#F5F6FD; --line:#E1E2F0; --white:#fff; --whatsapp:#25D366;
@@ -81,6 +83,15 @@ h2 + .lede{margin-top:.9rem}
 .btn-ghost{border-color:var(--line);color:var(--ink);background:var(--white)}
 .btn-ghost:hover{border-color:var(--brand)}
 .btn svg{width:20px;height:20px;flex:none}
+.btn{transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .2s,border-color .2s}
+@media(hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(22,23,63,.5)}}
+.btn:active{transform:scale(.97)}
+.plan{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+@media(hover:hover){.plan:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(22,23,63,.4)}}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
 @media(max-width:480px){.btn{white-space:normal;justify-content:center}}
 
 /* hero */
@@ -223,11 +234,13 @@ footer .social svg{width:24px;height:24px}
 @media(prefers-reduced-motion:reduce){
   html,.resenas{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .reveal{opacity:1;transform:none}
 }
 </style>
 <style>
 /* ---------- menú de OrganizApp (igual en las tres páginas) ---------- */
-.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
+.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.st-top.scrolled{background:rgba(255,255,255,.98);box-shadow:0 10px 26px -18px rgba(22,23,63,.45)}
 .st-top .st-wrap{position:relative;display:flex;align-items:center;gap:1rem;height:70px;width:min(1120px,92vw);margin-inline:auto;padding:0;max-width:none}
 .st-top a{display:inline-flex;color:#0E2230;text-decoration:none}
 .st-top img{height:36px;width:auto;display:block;object-fit:initial}
@@ -366,9 +379,9 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section id="problemas">
   <div class="wrap">
-    <h2>¿Te suena alguna de estas?</h2>
-    <p class="lede">Si tu negocio atiende clientes, hace trabajos o maneja mercadería, seguro alguna te pasó esta semana.</p>
-    <div class="cards">
+    <h2 class="reveal">¿Te suena alguna de estas?</h2>
+    <p class="lede reveal d1">Si tu negocio atiende clientes, hace trabajos o maneja mercadería, seguro alguna te pasó esta semana.</p>
+    <div class="cards reveal d2">
       <div class="card"><h3>Todo anotado en un cuaderno</h3><p>Y cuando lo necesitás, no está, no se entiende la letra o se quedó en el taller.</p></div>
       <div class="card"><h3>"¿Ya está listo?"</h3><p>Los clientes llaman o escriben todo el día para saber en qué quedó su trabajo.</p></div>
       <div class="card"><h3>No sabés qué tenés en stock</h3><p>Te das cuenta de que falta un repuesto o un producto cuando ya lo necesitás.</p></div>
@@ -381,9 +394,9 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section class="alt" id="modulos">
   <div class="wrap">
-    <h2>Qué puede hacer tu app</h2>
-    <p class="lede">Elegís lo que te sirve y dejamos afuera lo que no. Si más adelante necesitás algo nuevo, se agrega.</p>
-    <div class="modulos">
+    <h2 class="reveal">Qué puede hacer tu app</h2>
+    <p class="lede reveal d1">Elegís lo que te sirve y dejamos afuera lo que no. Si más adelante necesitás algo nuevo, se agrega.</p>
+    <div class="modulos reveal d2">
       <div class="modulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6"/><path d="M17 11h5M19.5 8.5v5"/></svg><h3>Clientes</h3><p>Ficha con datos de contacto y todo el historial de trabajos.</p></div>
       <div class="modulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><h3>Órdenes de trabajo</h3><p>Ingreso, estados, fotos, responsable y entrega de cada trabajo.</p></div>
       <div class="modulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/><path d="M15 17h1"/></svg><h3>Presupuestos</h3><p>Armado en minutos y envío al cliente por WhatsApp o en PDF.</p></div>
@@ -398,8 +411,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section id="rubros">
   <div class="wrap">
-    <h2>Para qué negocios</h2>
-    <p class="lede">Para cualquier negocio que tenga clientes, trabajos o mercadería que seguir. Algunos ejemplos:</p>
+    <h2 class="reveal">Para qué negocios</h2>
+    <p class="lede reveal d1">Para cualquier negocio que tenga clientes, trabajos o mercadería que seguir. Algunos ejemplos:</p>
     <div class="rubros">
       <span class="rubro">Talleres mecánicos</span>
       <span class="rubro">Gomerías y lubricentros</span>
@@ -413,15 +426,15 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
       <span class="rubro">Comercios y distribuidoras</span>
       <span class="rubro">Estudios y agencias</span>
     </div>
-    <p class="lede" style="margin-top:1.6rem">¿Tu rubro no está? Contame cómo trabajás y vemos qué se puede hacer.</p>
+    <p class="lede reveal d1" style="margin-top:1.6rem">¿Tu rubro no está? Contame cómo trabajás y vemos qué se puede hacer.</p>
   </div>
 </section>
 
 <section class="alt" id="como">
   <div class="wrap">
-    <h2>Cómo trabajo</h2>
-    <p class="lede">Primero entiendo cómo funciona tu negocio. Después armo la app pensando en eso.</p>
-    <div class="pasos">
+    <h2 class="reveal">Cómo trabajo</h2>
+    <p class="lede reveal d1">Primero entiendo cómo funciona tu negocio. Después armo la app pensando en eso.</p>
+    <div class="pasos reveal d2">
       <div class="paso"><h3>Me contás cómo trabajás</h3><p>Completás un cuestionario corto desde el celular, o lo charlamos por WhatsApp.</p></div>
       <div class="paso"><h3>Te muestro la propuesta</h3><p>Te muestro cómo quedaría tu app funcionando y la ajustamos juntos antes de arrancar.</p></div>
       <div class="paso"><h3>La dejo lista</h3><p>La adapto a tu negocio, le pongo tu logo y, si tenés datos en Excel o en otro sistema, los paso.</p></div>
@@ -432,15 +445,15 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section id="planes">
   <div class="wrap">
-    <h2>Planes y precios</h2>
-    <p class="lede">Un solo plan con todo incluido. Elegís si pagás por mes o por año. Los precios están en dólares, pero pagás en pesos, al valor del dólar oficial.</p>
+    <h2 class="reveal">Planes y precios</h2>
+    <p class="lede reveal d1">Un solo plan con todo incluido. Elegís si pagás por mes o por año. Los precios están en dólares, pero pagás en pesos, al valor del dólar oficial.</p>
 
     <div class="promo">
       <div class="promo-item or"><span class="promo-tag">Promoción de lanzamiento</span><b>El primer mes es gratis</b><span>Usás tu app un mes entero. Si no te sirve, no pagás nada.</span></div>
       <div class="promo-item"><b>Configuración y personalización sin costo</b><span>Armar la app para tu negocio, con tu logo, tus colores y tus datos, no se cobra aparte.</span></div>
     </div>
 
-    <div class="planes">
+    <div class="planes reveal d2">
       <div class="plan">
         <h3>Mensual</h3>
         <div class="precio"><span class="mon">u$s</span>20<small>/ mes</small></div>
@@ -474,7 +487,7 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 <section class="cliente">
   <div class="wrap">
     <div>
-      <h2>La misma atención, ahora para tu negocio</h2>
+      <h2 class="reveal">La misma atención, ahora para tu negocio</h2>
       <p style="margin-top:1rem">OrganizApp lo hago yo, Juan, el mismo de Reviví Tu Compu. Desde 2020 reparo compus y doy soporte técnico a particulares y empresas en Caballito y en remoto. Los clientes valoran que les explico todo, que cumplo los tiempos y que siempre les respondo yo.</p>
       <p>Con las apps trabajo igual: te escucho, te digo qué conviene y no te vendo lo que no necesitás.</p>
       <p><b style="color:#fff">¿Ya sos cliente de Reviví Tu Compu?</b> Entonces ya sabés cómo trabajo. Escribime y lo charlamos.</p>
@@ -490,8 +503,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section id="faq">
   <div class="wrap">
-    <h2>Preguntas frecuentes</h2>
-    <div class="faq">
+    <h2 class="reveal">Preguntas frecuentes</h2>
+    <div class="faq reveal d2">
       <details name="faq"><summary>¿Cómo funciona el mes de prueba?</summary><p>Te armo la app, te enseño a usarla y la usás un mes completo sin pagar. Si te sirve, elegís el plan mensual o el anual. Si no, no pagás nada.</p></details>
       <details name="faq"><summary>¿La configuración de la app se cobra aparte?</summary><p>No. Armar la app para tu negocio, ponerle tu logo y tus colores y pasar tus datos está incluido: no se cobra aparte. Solo pagás el plan mensual o el anual, y el primer mes es gratis.</p></details>
       <details name="faq"><summary>¿Tengo que instalar algo?</summary><p>No. La app se abre desde el navegador del celular, la tablet o la compu. En el celular podés agregarla a la pantalla de inicio y queda como cualquier otra app.</p></details>
@@ -507,8 +520,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 
 <section class="cierre alt">
   <div class="wrap">
-    <h2>Contame cómo trabaja tu negocio</h2>
-    <p class="lede" style="text-align:center">Completá el cuestionario en unos minutos y arrancamos con tu mes de prueba gratis.</p>
+    <h2 class="reveal">Contame cómo trabaja tu negocio</h2>
+    <p class="lede reveal d1" style="text-align:center">Completá el cuestionario en unos minutos y arrancamos con tu mes de prueba gratis.</p>
     <div class="hero-cta">
       <a class="btn btn-main" href="/relevamiento">Completar el cuestionario</a>
       <a class="btn btn-wa" href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20quiero%20consultarte%20por%20una%20app%20para%20mi%20negocio">
@@ -589,6 +602,20 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   pintar();
   window.addEventListener('scroll',pintar,{passive:true});
   window.addEventListener('resize',pintar);
+})();
+</script>
+<script>
+/* Header con sombra al scrollear y bloques que aparecen al entrar en pantalla */
+(function(){
+  var cab=document.querySelector('.top,.st-top');
+  if(cab){ var f=function(){ cab.classList.toggle('scrolled',window.scrollY>30); }; f(); window.addEventListener('scroll',f,{passive:true}); }
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){ io.observe(e); });
 })();
 </script>
 </body>

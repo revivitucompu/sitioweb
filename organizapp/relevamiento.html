@@ -14,9 +14,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js'</script>
 <style>
 :root{
   --brand:#5D62E9; --brand-dark:#4A4FD6; --brand-soft:#EEEFFD; --green:#119D71;
+  --ease:cubic-bezier(.4,0,.2,1);
   --ink:#16222B; --muted:#5B6B77; --line:#E1E2F0; --bg:#F5F6FD; --card:#FFFFFF;
   --ok:#1E9E62; --err:#C8412F;
 }
@@ -111,7 +113,8 @@ footer .social svg{width:24px;height:24px}
 </style>
 <style>
 /* ---------- menú de OrganizApp (igual en las tres páginas) ---------- */
-.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left}
+.st-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E2F0;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0;text-align:left;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.st-top.scrolled{background:rgba(255,255,255,.98);box-shadow:0 10px 26px -18px rgba(22,23,63,.45)}
 .st-top .st-wrap{position:relative;display:flex;align-items:center;gap:1rem;height:70px;width:min(1120px,92vw);margin-inline:auto;padding:0;max-width:none}
 .st-top a{display:inline-flex;color:#0E2230;text-decoration:none}
 .st-top img{height:36px;width:auto;display:block;object-fit:initial}
@@ -541,6 +544,20 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   pintar();
   window.addEventListener('scroll',pintar,{passive:true});
   window.addEventListener('resize',pintar);
+})();
+</script>
+<script>
+/* Header con sombra al scrollear y bloques que aparecen al entrar en pantalla */
+(function(){
+  var cab=document.querySelector('.top,.st-top');
+  if(cab){ var f=function(){ cab.classList.toggle('scrolled',window.scrollY>30); }; f(); window.addEventListener('scroll',f,{passive:true}); }
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){ io.observe(e); });
 })();
 </script>
 </body>
