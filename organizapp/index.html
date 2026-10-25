@@ -37,7 +37,7 @@
   "provider":{"@type":"ComputerRepairService","name":"Reviví Tu Compu","url":"https://www.revivitucompu.com.ar/","telephone":"+5491123884677"},
   "areaServed":{"@type":"Country","name":"Argentina"},
   "description":"Apps de gestión hechas a medida para talleres, comercios, consultorios y pymes, con configuración sin costo, alojamiento, copias de seguridad, mejoras y soporte directo incluidos. El primer mes es gratis.",
-  "offers":[{"@type":"Offer","name":"Plan mensual","price":"20","priceCurrency":"USD"},{"@type":"Offer","name":"Plan anual","price":"200","priceCurrency":"USD"}]
+  "offers":[{"@type":"Offer","name":"Plan Base mensual (hasta 3 usuarios)","price":"30000","priceCurrency":"ARS"},{"@type":"Offer","name":"Plan Base anual (hasta 3 usuarios)","price":"300000","priceCurrency":"ARS"},{"@type":"Offer","name":"Plan Equipo mensual (hasta 10 usuarios)","price":"45000","priceCurrency":"ARS"},{"@type":"Offer","name":"Plan Equipo anual (hasta 10 usuarios)","price":"450000","priceCurrency":"ARS"}]
 }
 </script>
 <script>document.documentElement.className+=' js'</script>
@@ -165,21 +165,27 @@ h2 + .lede{margin-top:.9rem}
 .promo-item .promo-tag{display:inline-block;background:var(--green-dark);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:.15rem .6rem;border-radius:999px;margin-bottom:.45rem}
 .promo-item b{display:block;font-family:'Archivo Narrow',sans-serif;font-size:1.35rem}
 .promo-item span{color:var(--slate);font-size:.95rem}
-.planes{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:1.2rem;margin-top:1.4rem;align-items:start}
+.planes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem;margin-top:1.8rem;align-items:start}
 .plan{position:relative;border:1px solid var(--line);border-radius:10px;padding:1.8rem 1.6rem;background:var(--white);display:flex;flex-direction:column}
 .plan.dest{border:2px solid var(--green);box-shadow:0 12px 30px rgba(17,157,113,.14)}
 .plan .tag{position:absolute;top:-.8rem;left:1.4rem;background:var(--green-dark);color:#fff;font-size:.8rem;font-weight:600;padding:.2rem .7rem;border-radius:999px}
-.precio{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:4rem;line-height:1;margin:.8rem 0 .4rem}
+.precio{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:2.9rem;line-height:1;margin:.8rem 0 .4rem}
 .precio .mon{font-size:1.5rem;vertical-align:top;margin-right:.2rem}
 .precio small{font-size:1.1rem;color:var(--slate);font-weight:600;margin-left:.3rem}
 .plan-sub{color:var(--slate);font-size:.95rem;min-height:3.2em}
 .plan-sub b{color:var(--ink)}
-.plan .btn{justify-content:center}
+.plan .btn{justify-content:center;white-space:normal;text-align:center;padding-inline:1rem}
 .suscribir{display:block;text-align:center;margin-top:.9rem;font-size:.9rem;font-weight:500}
-.incluye{background:var(--paper);border-radius:10px;padding:1.5rem 1.6rem}
+.incluye{background:var(--paper);border-radius:10px;padding:1.5rem 1.6rem;margin-top:1.4rem}
+.incluye .lista{display:grid;grid-template-columns:1fr 1fr;column-gap:2.5rem}
+@media(max-width:700px){.incluye .lista{grid-template-columns:1fr}}
+.plan .usu{font-weight:600;color:var(--brand-dark);margin:.2rem 0 0}
+.plan-mas{text-align:center;color:var(--slate);margin-top:1.2rem}
+.aviso{background:var(--green-dark);color:#fff;text-align:center;font-size:.95rem;padding:.55rem 4vw;line-height:1.4}
+.aviso a{color:#fff;font-weight:600}
 .incluye h3{margin-bottom:.4rem}
 .plan-nota{color:var(--slate);font-size:.9rem;margin-top:1.2rem}
-@media(max-width:960px){.planes{grid-template-columns:1fr 1fr}.incluye{grid-column:1/-1}}
+@media(max-width:960px){.planes{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.planes,.promo{grid-template-columns:1fr}}
 
 /* clientes */
@@ -274,7 +280,7 @@ footer .social svg{width:24px;height:24px}
 }
 @media(max-width:430px){.st-top .st-wrap{gap:.6rem}.st-top img{height:30px}.st-top nav{gap:.5rem}.st-top .st-wa{padding:.6rem .85rem}}
 @media(max-width:360px){.st-top .st-wa{font-size:0;gap:0;padding:.7rem}}
-@media print{.st-top{display:none}}
+@media print{.st-top,.aviso{display:none}}
 </style>
 <style>
 /* ---------- pie de OrganizApp (igual en las tres páginas) ---------- */
@@ -294,6 +300,8 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 </head>
 <body>
 <a class="saltar" href="#principal">Saltar al contenido</a>
+
+<div class="aviso"><b>Creá tu app y probala 1 mes gratis.</b> <a href="https://app.organizapp.com.ar/empezar">Empezar ahora</a></div>
 
 <header class="st-top">
   <div class="st-wrap">
@@ -446,41 +454,58 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
 <section id="planes">
   <div class="wrap">
     <h2 class="reveal">Planes y precios</h2>
-    <p class="lede reveal d1">Un solo plan con todo incluido. Elegís si pagás por mes o por año. Los precios están en dólares, pero pagás en pesos, al valor del dólar oficial.</p>
+    <p class="lede reveal d1">Todo incluido en los cuatro planes. Elegís según cuántas personas van a usar la app y si preferís pagar por mes o por año.</p>
 
     <div class="promo">
-      <div class="promo-item or"><span class="promo-tag">Promoción de lanzamiento</span><b>El primer mes es gratis</b><span>Usás tu app un mes entero. Si no te sirve, no pagás nada.</span></div>
+      <div class="promo-item or"><span class="promo-tag">Promoción de lanzamiento</span><b>El primer mes es gratis</b><span>Creás tu app y la usás un mes entero. Si no te sirve, no pagás nada.</span></div>
       <div class="promo-item"><b>Configuración y personalización sin costo</b><span>Armar la app para tu negocio, con tu logo, tus colores y tus datos, no se cobra aparte.</span></div>
     </div>
 
     <div class="planes reveal d2">
       <div class="plan">
-        <h3>Mensual</h3>
-        <div class="precio"><span class="mon">u$s</span>20<small>/ mes</small></div>
+        <h3>Base mensual</h3>
+        <p class="usu">Hasta 3 usuarios</p>
+        <div class="precio">$30.000<small>/ mes</small></div>
         <p class="plan-sub">Pagás mes a mes.</p>
-        <a class="btn btn-ghost" href="https://app.organizapp.com.ar/empezar">Empezar la prueba gratis</a>
-        <a class="suscribir" href="https://mpago.la/1gyR8hd" target="_blank" rel="noopener">¿Ya tenés tu app lista? Suscribite al plan mensual</a>
+        <a class="btn btn-ghost" href="https://app.organizapp.com.ar/empezar">Probar 1 mes gratis</a>
       </div>
       <div class="plan dest">
-        <span class="tag">Más conveniente</span>
-        <h3>Anual</h3>
-        <div class="precio"><span class="mon">u$s</span>200<small>/ año</small></div>
-        <p class="plan-sub"><b>2 meses sin cargo:</b> pagás 10 y usás 12. Ahorrás u$s 40.</p>
-        <a class="btn btn-main" href="https://app.organizapp.com.ar/empezar">Empezar la prueba gratis</a>
-        <a class="suscribir" href="https://mpago.la/31DZRdh" target="_blank" rel="noopener">¿Ya tenés tu app lista? Suscribite al plan anual</a>
+        <span class="tag">2 meses sin cargo</span>
+        <h3>Base anual</h3>
+        <p class="usu">Hasta 3 usuarios</p>
+        <div class="precio">$300.000<small>/ año</small></div>
+        <p class="plan-sub">Pagás 10 meses y usás 12. Ahorrás $60.000.</p>
+        <a class="btn btn-main" href="https://app.organizapp.com.ar/empezar">Probar 1 mes gratis</a>
       </div>
-      <div class="incluye">
-        <h3>Los dos planes incluyen</h3>
-        <ul class="lista">
-          <li><b>App personalizada para tu negocio</b><span>Con los módulos que necesitás, tu logo y tus colores. La configuración no se cobra aparte.</span></li>
-          <li><b>Soporte directo conmigo</b><span>Por WhatsApp, sin mesa de ayuda ni tickets.</span></li>
-          <li><b>Mejoras a partir del uso</b><span>Si algo se puede hacer mejor o necesitás algo nuevo, lo vemos y se implementa.</span></li>
-          <li><b>Funcionando en internet</b><span>Sin instalar nada ni tener un servidor.</span></li>
-          <li><b>Copias de seguridad automáticas</b><span>Tus datos guardados todos los días.</span></li>
-        </ul>
+      <div class="plan">
+        <h3>Equipo mensual</h3>
+        <p class="usu">Hasta 10 usuarios</p>
+        <div class="precio">$45.000<small>/ mes</small></div>
+        <p class="plan-sub">Pagás mes a mes.</p>
+        <a class="btn btn-ghost" href="https://app.organizapp.com.ar/empezar">Probar 1 mes gratis</a>
+      </div>
+      <div class="plan dest">
+        <span class="tag">2 meses sin cargo</span>
+        <h3>Equipo anual</h3>
+        <p class="usu">Hasta 10 usuarios</p>
+        <div class="precio">$450.000<small>/ año</small></div>
+        <p class="plan-sub">Pagás 10 meses y usás 12. Ahorrás $90.000.</p>
+        <a class="btn btn-main" href="https://app.organizapp.com.ar/empezar">Probar 1 mes gratis</a>
       </div>
     </div>
-    <p class="plan-nota">El pago es en pesos, ajustado al valor del dólar oficial, por Mercado Pago, con tarjeta de crédito, débito o dinero en cuenta, y se cobra solo cada mes o cada año. Lo cancelás cuando quieras. El mes de prueba empieza cuando te suscribís, así que te conviene hacerlo el día que te entrego la app.</p>
+    <p class="plan-mas">¿Son más de 10 personas? <a href="https://wa.me/5491123884677?text=Hola%20Juan%2C%20quiero%20consultarte%20por%20OrganizApp%20para%20m%C3%A1s%20de%2010%20usuarios">Escribime y lo armamos a tu medida.</a></p>
+
+    <div class="incluye reveal d2">
+      <h3>Todos los planes incluyen</h3>
+      <ul class="lista">
+        <li><b>App personalizada para tu negocio</b><span>Con los módulos que necesitás, tu logo y tus colores. La configuración no se cobra aparte.</span></li>
+        <li><b>Soporte directo conmigo</b><span>Por WhatsApp, sin mesa de ayuda ni tickets.</span></li>
+        <li><b>Mejoras a partir del uso</b><span>Si algo se puede hacer mejor o necesitás algo nuevo, lo vemos y se implementa.</span></li>
+        <li><b>Funcionando en internet</b><span>Sin instalar nada ni tener un servidor.</span></li>
+        <li><b>Copias de seguridad automáticas</b><span>Tus datos guardados todos los días.</span></li>
+      </ul>
+    </div>
+    <p class="plan-nota">Los precios están en pesos. El pago es por Mercado Pago, con tarjeta de crédito, débito o dinero en cuenta, y se cobra solo cada mes o cada año. La suscripción empieza a cobrarse cuando termina el mes gratis. Lo cancelás cuando quieras.</p>
   </div>
 </section>
 
@@ -505,11 +530,11 @@ footer .social svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;f
   <div class="wrap">
     <h2 class="reveal">Preguntas frecuentes</h2>
     <div class="faq reveal d2">
-      <details name="faq"><summary>¿Cómo funciona el mes de prueba?</summary><p>Te armo la app, te enseño a usarla y la usás un mes completo sin pagar. Si te sirve, elegís el plan mensual o el anual. Si no, no pagás nada.</p></details>
-      <details name="faq"><summary>¿La configuración de la app se cobra aparte?</summary><p>No. Armar la app para tu negocio, ponerle tu logo y tus colores y pasar tus datos está incluido: no se cobra aparte. Solo pagás el plan mensual o el anual, y el primer mes es gratis.</p></details>
+      <details name="faq"><summary>¿Cómo funciona el mes de prueba?</summary><p>Creás tu app desde la web y la usás un mes completo sin pagar. Si preferís que la arme yo a medida, me contás cómo trabajás y te ayudo. Si te sirve, elegís un plan. Si no, no pagás nada.</p></details>
+      <details name="faq"><summary>¿La configuración de la app se cobra aparte?</summary><p>No. Armar la app para tu negocio, ponerle tu logo y tus colores y pasar tus datos está incluido: no se cobra aparte. Solo pagás el plan que elijas, y el primer mes es gratis.</p></details>
       <details name="faq"><summary>¿Tengo que instalar algo?</summary><p>No. La app se abre desde el navegador del celular, la tablet o la compu. En el celular podés agregarla a la pantalla de inicio y queda como cualquier otra app.</p></details>
       <details name="faq"><summary>¿Necesito saber de computación?</summary><p>No. La armo para que sea simple y te enseño a usarla. Si te trabás con algo, me escribís.</p></details>
-      <details name="faq"><summary>¿Pueden usarla mis empleados?</summary><p>Sí. Cada uno entra con su usuario, y definimos qué puede ver y qué no. Por ejemplo, que carguen órdenes pero no vean la caja.</p></details>
+      <details name="faq"><summary>¿Pueden usarla mis empleados?</summary><p>Sí. Cada uno entra con su usuario, y definimos qué puede ver y qué no. Por ejemplo, que carguen órdenes pero no vean la caja. El plan Base incluye hasta 3 usuarios y el plan Equipo, hasta 10.</p></details>
       <details name="faq"><summary>Tengo todo en Excel o en otro sistema, ¿se pierde?</summary><p>No. Si tus datos están en una planilla o se pueden exportar, los paso a la app para que arranques con todo cargado.</p></details>
       <details name="faq"><summary>¿Qué pasa con mis datos?</summary><p>Los datos son tuyos. Se guardan con copias de seguridad automáticas, y si algún día los necesitás, te los paso en una planilla.</p></details>
       <details name="faq"><summary>¿Necesito internet?</summary><p>Sí, la app funciona conectada. Alcanza con el wifi del local o los datos del celular.</p></details>
